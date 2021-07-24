@@ -34,7 +34,6 @@ public class SafetyFirstAppApplication implements CommandLineRunner {
         personsProxy.readPersons();
         firestationsProxy.readFirestations();
         medicalRecordsProxy.readMedicalRecords();
-        
        
         
     }}
