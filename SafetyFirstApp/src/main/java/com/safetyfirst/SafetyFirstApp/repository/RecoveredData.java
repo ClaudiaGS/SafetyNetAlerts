@@ -6,13 +6,11 @@ import com.safetyfirst.SafetyFirstApp.model.Firestation;
 import com.safetyfirst.SafetyFirstApp.model.MedicalRecord;
 import com.safetyfirst.SafetyFirstApp.model.Person;
 import lombok.Data;
-import org.springframework.stereotype.Repository;
 
 import java.net.URL;
 import java.util.List;
 
 @Data
-@Repository
 public class RecoveredData implements IDataRecovery {
     
     private List<Person> persons;
