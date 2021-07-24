@@ -15,5 +15,17 @@ public class MedicalRecordService {
     public List<MedicalRecord> readMedicalRecords() {
         return medicalRecordsProxy.readMedicalRecords();
     }
-
+    
+    public List<MedicalRecord> deleteMedicalRecord(String firstName, String lastName) {
+        return medicalRecordsProxy.deleteMedicalRecord(firstName, lastName);
+    }
+    public List<MedicalRecord> modifyMedicalRecord(String firstName,String lastName, List<String>newMedications, List<String> newAllergies) {
+        return medicalRecordsProxy.modifyMedicalRecord(firstName,lastName,newMedications,newAllergies);
+    }
+    
+    public List<MedicalRecord> addMedicalRecord(MedicalRecord medicalRecord) {
+        return medicalRecordsProxy.addMedicalRecord(medicalRecord);
+    }
 }
+
+
