@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.List;
 
 @Repository
-public class ExtraProxy implements IExtraProxy{
+public class ExtraProxy implements IExtraProxy {
     
     @Autowired
     IRecoveredData recoveredData;
@@ -29,7 +29,6 @@ public class ExtraProxy implements IExtraProxy{
         List<Person> personList = recoveredData.getPersons();
         List<MedicalRecord> medicalRecordList = recoveredData.getMedicalrecords();
         
-        //persons per firestation
         List<Person> personPerGivenFirestation = new ArrayList<>();
         
         HashMap<String, Integer> childrenAndAdults = new HashMap<>();
@@ -233,7 +232,7 @@ public class ExtraProxy implements IExtraProxy{
             }
             ObjectNode completNode = mapper.createObjectNode();
             completNode.put("address", address);
-            completNode.put("station",firestationPerAddress);
+            completNode.put("station", firestationPerAddress);
             completNode.set("personsData", personsDataNode);
             jsonString = mapper.writeValueAsString(completNode);
             
@@ -307,13 +306,13 @@ public class ExtraProxy implements IExtraProxy{
                                 allergiesArrayDataNode);
                         personsNode.add(personsUniqueDataNode);
                     }
-                    personAddressUniqueDataNode.put("personsPerAddress",personsNode);
+                    personAddressUniqueDataNode.put("personsPerAddress", personsNode);
                 }
                 personAddressDataNode.add(personAddressUniqueDataNode);
             }
             ObjectNode stationCompletNode = mapper.createObjectNode();
             stationCompletNode.put("station", station);
-            stationCompletNode.set("addressesAndPersons",personAddressDataNode);
+            stationCompletNode.set("addressesAndPersons", personAddressDataNode);
             jsonString = mapper.writeValueAsString(stationCompletNode);
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -393,6 +392,7 @@ public class ExtraProxy implements IExtraProxy{
         }
         return jsonString;
     }
+    
     @Override
     public void setRecoveredData(IRecoveredData recoveredData) {
         this.recoveredData = recoveredData;
