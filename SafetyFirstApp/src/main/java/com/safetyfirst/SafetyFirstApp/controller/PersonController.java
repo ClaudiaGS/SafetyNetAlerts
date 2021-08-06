@@ -1,7 +1,7 @@
 package com.safetyfirst.SafetyFirstApp.controller;
 
 import com.safetyfirst.SafetyFirstApp.model.Person;
-import com.safetyfirst.SafetyFirstApp.service.PersonService;
+import com.safetyfirst.SafetyFirstApp.service.IPersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,10 +9,10 @@ import java.util.HashMap;
 import java.util.List;
 
 @RestController
-public class PersonsController {
+public class PersonController {
     
     @Autowired
-    PersonService personService;
+    IPersonService personService;
     
     @GetMapping("/person/all")
     public List<Person> readPersons() {

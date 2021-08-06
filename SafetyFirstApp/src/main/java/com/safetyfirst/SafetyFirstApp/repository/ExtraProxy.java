@@ -7,7 +7,6 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.safetyfirst.SafetyFirstApp.model.Firestation;
 import com.safetyfirst.SafetyFirstApp.model.MedicalRecord;
 import com.safetyfirst.SafetyFirstApp.model.Person;
-import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -18,15 +17,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-@Data
 @Repository
-public class ExtraProxy {
+public class ExtraProxy implements IExtraProxy{
+    
     @Autowired
-    PersonsProxy personsProxy;
-    @Autowired
-    FirestationsProxy firestationsProxy;
-    @Autowired
-    IDataRecovery recoveredData;
+    IRecoveredData recoveredData;
     
     
     public String endpoint1ToJSon(String station) {
@@ -221,7 +216,7 @@ public class ExtraProxy {
                 personsUniqueDataNode.put("lastName", p.getLastName());
                 personsUniqueDataNode.put("phone", p.getPhone());
                 personsUniqueDataNode.put("age", ages.get(personList.indexOf(p)));
-                personsUniqueDataNode.put("station", firestationPerAddress);
+                // personsUniqueDataNode.put("station", firestationPerAddress);
                 ArrayNode medicationsArrayDataNode = mapper.createArrayNode();
                 for (String medication : medicalRecordsList.get(personList.indexOf(p)).getMedications()) {
                     medicationsArrayDataNode.add(medication);
@@ -238,6 +233,7 @@ public class ExtraProxy {
             }
             ObjectNode completNode = mapper.createObjectNode();
             completNode.put("address", address);
+            completNode.put("station",firestationPerAddress);
             completNode.set("personsData", personsDataNode);
             jsonString = mapper.writeValueAsString(completNode);
             
@@ -397,5 +393,8 @@ public class ExtraProxy {
         }
         return jsonString;
     }
-    
+    @Override
+    public void setRecoveredData(IRecoveredData recoveredData) {
+        this.recoveredData = recoveredData;
+    }
 }

@@ -1,7 +1,7 @@
 package com.safetyfirst.SafetyFirstApp.controller;
 
 import com.safetyfirst.SafetyFirstApp.model.Firestation;
-import com.safetyfirst.SafetyFirstApp.service.FirestationService;
+import com.safetyfirst.SafetyFirstApp.service.IFirestationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,10 +10,10 @@ import java.util.List;
 
 
 @RestController
-public class FirestationsController {
+public class FirestationController {
     
     @Autowired
-    FirestationService firestationService;
+    IFirestationService firestationService;
     
     @GetMapping("/firestation/all")
     public List<Firestation> readFirestations() {

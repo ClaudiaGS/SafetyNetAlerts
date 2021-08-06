@@ -1,7 +1,6 @@
 package com.safetyfirst.SafetyFirstApp.repository;
 
 import com.safetyfirst.SafetyFirstApp.model.Firestation;
-import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -10,16 +9,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@Data
 @Repository
 public class FirestationsProxy implements IFirestationsProxy {
     @Autowired
-    IDataRecovery recoveredData;
+    IRecoveredData recoveredData;
     
     @Override
     public List<Firestation> readFirestations() {
         List<Firestation> firestations = recoveredData.getFirestations();
-        System.out.println("firestations list is " + firestations);
         return firestations;
     }
     
@@ -58,7 +55,7 @@ public class FirestationsProxy implements IFirestationsProxy {
         List<Firestation>firestationList=recoveredData.getFirestations();
         for(Firestation f:firestationList){
             if(f.getAddress().equals(address)){
-                f.setStation(station);
+                f.setStation(station.trim());
             }
         }
         return firestationList;
@@ -73,5 +70,8 @@ public class FirestationsProxy implements IFirestationsProxy {
         firestationList.add(f);
         return firestationList;
     }
+    @Override
+    public void setRecoveredData(IRecoveredData recoveredData) {
+        this.recoveredData = recoveredData;
+    }
 }
-

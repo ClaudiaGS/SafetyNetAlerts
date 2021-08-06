@@ -6,9 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-
 @Service
-public class MedicalRecordService {
+public class MedicalRecordService implements IMedicalRecordService {
     @Autowired
     MedicalRecordsProxy medicalRecordsProxy;
     
@@ -22,10 +21,7 @@ public class MedicalRecordService {
     public List<MedicalRecord> modifyMedicalRecord(String firstName,String lastName, List<String>newMedications, List<String> newAllergies) {
         return medicalRecordsProxy.modifyMedicalRecord(firstName,lastName,newMedications,newAllergies);
     }
-    
     public List<MedicalRecord> addMedicalRecord(MedicalRecord medicalRecord) {
         return medicalRecordsProxy.addMedicalRecord(medicalRecord);
     }
 }
-
-

@@ -1,20 +1,18 @@
 package com.safetyfirst.SafetyFirstApp.service;
 
 import com.safetyfirst.SafetyFirstApp.model.Person;
-import com.safetyfirst.SafetyFirstApp.repository.PersonsProxy;
-import lombok.Data;
+import com.safetyfirst.SafetyFirstApp.repository.IPersonsProxy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.List;
 
-@Data
 @Service
-public class PersonService {
+public class PersonService implements IPersonService{
     
     @Autowired
-    PersonsProxy personsProxy;
+    IPersonsProxy personsProxy;
     
     public List<Person> readPersons() {
         return personsProxy.readPersons();

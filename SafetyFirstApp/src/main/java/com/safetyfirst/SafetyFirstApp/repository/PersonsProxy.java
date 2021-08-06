@@ -1,7 +1,6 @@
 package com.safetyfirst.SafetyFirstApp.repository;
 
 import com.safetyfirst.SafetyFirstApp.model.Person;
-import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -9,16 +8,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@Data
 @Repository
-public class PersonsProxy implements IPersonsProxy {
+public class PersonsProxy implements IPersonsProxy{
     @Autowired
-    IDataRecovery recoveredData;
+    IRecoveredData recoveredData;
     
     @Override
     public List<Person> readPersons() {
         List<Person> persons = recoveredData.getPersons();
-        System.out.println("person list is " + persons);
         return persons;
     }
     
@@ -78,5 +75,9 @@ public class PersonsProxy implements IPersonsProxy {
         List<Person> persons = recoveredData.getPersons();
         persons.add(person);
         return persons;
+    }
+    @Override
+    public void setRecoveredData(IRecoveredData recoveredData) {
+        this.recoveredData = recoveredData;
     }
 }

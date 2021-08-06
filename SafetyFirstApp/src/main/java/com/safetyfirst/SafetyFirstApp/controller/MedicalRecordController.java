@@ -1,7 +1,7 @@
 package com.safetyfirst.SafetyFirstApp.controller;
 
 import com.safetyfirst.SafetyFirstApp.model.MedicalRecord;
-import com.safetyfirst.SafetyFirstApp.service.MedicalRecordService;
+import com.safetyfirst.SafetyFirstApp.service.IMedicalRecordService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,7 +10,7 @@ import java.util.List;
 @RestController
 public class MedicalRecordController {
     @Autowired
-    MedicalRecordService medicalRecordService;
+    IMedicalRecordService medicalRecordService;
     
     @GetMapping("/medicalRecord/all")
     public List<MedicalRecord> readMedicalRecords() {
@@ -23,7 +23,7 @@ public class MedicalRecordController {
     }
     
     @PutMapping("/medicalRecord")
-    public List<MedicalRecord> modifyMedicalRecord(@RequestParam String firstName, @RequestParam String lastName, @RequestParam List<String> newMedications, @RequestParam List<String>newAllergies) {
+    public List<MedicalRecord> modifyMedicalRecord(@RequestParam String firstName, @RequestParam String lastName, @RequestParam List<String> newMedications, @RequestParam List<String>newAllergies){
         return medicalRecordService.modifyMedicalRecord(firstName,lastName,newMedications,newAllergies);
     }
     

@@ -13,4 +13,6 @@ public interface IFirestationsProxy {
     public List<Firestation> modifyFirestation(String address, String station);
     
     public List<Firestation> addFirestation(String address, String station);
+    
+    public void setRecoveredData(IRecoveredData recoveredData);
 }

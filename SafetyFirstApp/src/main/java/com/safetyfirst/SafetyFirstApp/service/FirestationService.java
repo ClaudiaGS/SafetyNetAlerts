@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 
 @Service
-public class FirestationService {
+public class FirestationService implements IFirestationService{
     @Autowired
     FirestationsProxy firestationsProxy;
     
