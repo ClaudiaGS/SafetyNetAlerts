@@ -4,6 +4,12 @@ target/*
 !target/jacoco-merged-reports
 !target/jacoco-unit-test-coverage-report
 !target/jacoco-output
+<<<<<<< HEAD
+=======
+!target/site
+target/site/*
+!target/site/surefire-report.html
+>>>>>>> 6642dad (surefire report Added2)
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
