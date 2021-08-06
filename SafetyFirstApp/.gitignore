@@ -1,5 +1,9 @@
 HELP.md
-target/
+target/*
+!target/jacoco-integration-test-coverage-report
+!target/jacoco-merged-reports
+!target/jacoco-unit-test-coverage-report
+!target/jacoco-output
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
