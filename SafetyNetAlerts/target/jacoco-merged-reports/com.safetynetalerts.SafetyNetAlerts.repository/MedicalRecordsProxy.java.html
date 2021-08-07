@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MedicalRecordsProxy.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">SafetyNetAlerts</a> &gt; <a href="index.source.html" class="el_package">com.safetynetalerts.SafetyNetAlerts.repository</a> &gt; <span class="el_source">MedicalRecordsProxy.java</span></div><h1>MedicalRecordsProxy.java</h1><pre class="source lang-java linenums">package com.safetynetalerts.SafetyNetAlerts.repository;
+
+import com.safetynetalerts.SafetyNetAlerts.model.MedicalRecord;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+@Repository
+<span class="fc" id="L10">public class MedicalRecordsProxy implements IMedicalRecordsProxy {</span>
+    @Autowired
+    IRecoveredData recoveredData;
+    
+    @Override
+    public List&lt;MedicalRecord&gt; readMedicalRecords() {
+<span class="fc" id="L16">        List&lt;MedicalRecord&gt; medicalRecords = recoveredData.getMedicalrecords();</span>
+<span class="fc" id="L17">        return medicalRecords;</span>
+    }
+    
+    @Override
+    public List&lt;MedicalRecord&gt; deleteMedicalRecord(String firstName, String lastName) {
+<span class="fc" id="L22">        List&lt;MedicalRecord&gt; medicalRecords = recoveredData.getMedicalrecords();</span>
+<span class="fc" id="L23">        MedicalRecord medicalRecordToDelete = null;</span>
+<span class="fc bfc" id="L24" title="All 2 branches covered.">        for (MedicalRecord m : medicalRecords) {</span>
+<span class="pc bpc" id="L25" title="1 of 4 branches missed.">            if (m.getFirstName().equals(firstName) &amp;&amp; m.getLastName().equals(lastName)) {</span>
+<span class="fc" id="L26">                medicalRecordToDelete = m;</span>
+            }
+<span class="fc" id="L28">        }</span>
+<span class="fc" id="L29">        medicalRecords.remove(medicalRecordToDelete);</span>
+<span class="fc" id="L30">        return medicalRecords;</span>
+    }
+    
+    @Override
+    public List&lt;MedicalRecord&gt; modifyMedicalRecord(String firstName, String lastName, List&lt;String&gt; newMedications, List&lt;String&gt; newAllergies) {
+<span class="fc" id="L35">        List&lt;MedicalRecord&gt; medicalRecordList = recoveredData.getMedicalrecords();</span>
+<span class="fc bfc" id="L36" title="All 2 branches covered.">        for (MedicalRecord m : medicalRecordList) {</span>
+<span class="fc" id="L37">            List&lt;String&gt;medications=m.getMedications();</span>
+<span class="fc" id="L38">            List&lt;String&gt;allergies=m.getAllergies();</span>
+<span class="pc bpc" id="L39" title="1 of 4 branches missed.">            if (m.getFirstName() .equals(firstName) &amp;&amp; m.getLastName().equals(lastName)) {</span>
+<span class="fc bfc" id="L40" title="All 2 branches covered.">           for (String newMedication : newMedications) {</span>
+<span class="fc" id="L41">                    medications.add(newMedication);</span>
+<span class="fc" id="L42">                }</span>
+
+<span class="fc bfc" id="L44" title="All 2 branches covered.">                for (String newAllergie : newAllergies) {</span>
+<span class="fc" id="L45">                    allergies.add(newAllergie);</span>
+<span class="fc" id="L46">                }</span>
+
+            }
+            
+<span class="fc" id="L50">        }</span>
+<span class="fc" id="L51">        return medicalRecordList;</span>
+    }
+
+    @Override
+    public List&lt;MedicalRecord&gt; addMedicalRecord(MedicalRecord medicalRecord) {
+<span class="fc" id="L56">        List&lt;MedicalRecord&gt; medicalRecords = recoveredData.getMedicalrecords();</span>
+<span class="fc" id="L57">        medicalRecords.add(medicalRecord);</span>
+<span class="fc" id="L58">        return medicalRecords;</span>
+    }
+    
+    @Override
+    public void setRecoveredData(IRecoveredData recoveredData) {
+<span class="fc" id="L63">        this.recoveredData = recoveredData;</span>
+<span class="fc" id="L64">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
