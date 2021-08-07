@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RecoveredData.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">SafetyNetAlerts</a> &gt; <a href="index.source.html" class="el_package">com.safetynetalerts.SafetyNetAlerts.repository</a> &gt; <span class="el_source">RecoveredData.java</span></div><h1>RecoveredData.java</h1><pre class="source lang-java linenums">package com.safetynetalerts.SafetyNetAlerts.repository;
+
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.safetynetalerts.SafetyNetAlerts.config.DataSources;
+import com.safetynetalerts.SafetyNetAlerts.model.Firestation;
+import com.safetynetalerts.SafetyNetAlerts.model.MedicalRecord;
+import com.safetynetalerts.SafetyNetAlerts.model.Person;
+
+import java.util.List;
+
+
+<span class="fc" id="L13">public class RecoveredData implements IRecoveredData {</span>
+    
+    private List&lt;Person&gt; persons;
+    private List&lt;Firestation&gt; firestations;
+    private List&lt;MedicalRecord&gt; medicalrecords;
+    
+    @Override
+    public void readData(DataSources dataSource) {
+        
+<span class="fc" id="L22">        ObjectMapper mapper = new ObjectMapper();</span>
+<span class="fc" id="L23">        RecoveredData myObjects = null;</span>
+        try {
+<span class="fc" id="L25">            myObjects = mapper.readValue(dataSource.getDataUrl(), RecoveredData.class);</span>
+<span class="nc" id="L26">        } catch (Exception e) {</span>
+<span class="nc" id="L27">            System.out.println(e.getMessage());</span>
+<span class="fc" id="L28">        }</span>
+<span class="fc" id="L29">        persons = myObjects.persons;</span>
+<span class="fc" id="L30">        firestations = myObjects.firestations;</span>
+<span class="fc" id="L31">        medicalrecords = myObjects.medicalrecords;</span>
+        
+<span class="fc" id="L33">    }</span>
+    
+    @Override
+    public List&lt;Person&gt; getPersons() {
+<span class="nc" id="L37">        return persons;</span>
+    }
+    
+    @Override
+    public List&lt;Firestation&gt; getFirestations() {
+<span class="nc" id="L42">        return firestations;</span>
+    }
+    
+    @Override
+    public List&lt;MedicalRecord&gt; getMedicalrecords() {
+<span class="nc" id="L47">        return medicalrecords;</span>
+    }
+}
+
+
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

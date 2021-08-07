@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ExtraController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">SafetyNetAlerts</a> &gt; <a href="index.source.html" class="el_package">com.safetynetalerts.SafetyNetAlerts.controller</a> &gt; <span class="el_source">ExtraController.java</span></div><h1>ExtraController.java</h1><pre class="source lang-java linenums">package com.safetynetalerts.SafetyNetAlerts.controller;
+
+import com.safetynetalerts.SafetyNetAlerts.service.IExtraService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+<span class="fc" id="L10">public class ExtraController {</span>
+    @Autowired
+    IExtraService extraService;
+    @GetMapping(&quot;/firestation&quot;)
+    public String endpoint1ToJSon(@RequestParam String stationNumber){
+<span class="nc" id="L15">        return extraService.endpoint1ToJSon(stationNumber);</span>
+    }
+    @GetMapping(&quot;/childAlert&quot;)
+    public String endpoint2ToJSon(@RequestParam String address){
+<span class="nc" id="L19">        return extraService.endpoint2ToJSon(address);</span>
+    }
+    @GetMapping(&quot;/phoneAlert&quot;)
+    public String endpoint3ToJSon(@RequestParam String station){
+<span class="nc" id="L23">        return extraService.endpoint3ToJSon(station);</span>
+    }
+    @GetMapping(&quot;/fire&quot;)
+    public String endpoint4ToJSon(@RequestParam String address){
+<span class="nc" id="L27">        return extraService.endpoint4ToJSon(address);</span>
+    }
+    @GetMapping(&quot;/flood/stations&quot;)
+    public String endpoint5ToJSon(@RequestParam String station){
+<span class="nc" id="L31">        return extraService.endpoint5ToJSon(station);</span>
+    }
+    @GetMapping(&quot;/personInfo&quot;)
+    public String endpoint6ToJSon(){
+<span class="nc" id="L35">        return extraService.endpoint6ToJSon();</span>
+    }
+    @GetMapping(&quot;/communityEmail&quot;)
+    public String endpoint7ToJSon(String city){
+<span class="nc" id="L39">        return extraService.endpoint7ToJSon(city);</span>
+    }
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
