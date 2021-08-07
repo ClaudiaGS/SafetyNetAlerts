@@ -1,0 +1,11 @@
+package com.safetynetalerts.SafetyNetAlerts.model;
+
+import lombok.Data;
+import org.springframework.stereotype.Component;
+
+@Data
+@Component
+public class Firestation {
+    private String address;
+    private String station;
+}

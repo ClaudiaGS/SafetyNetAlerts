@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ExtraProxy.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">SafetyNetAlerts</a> &gt; <a href="index.source.html" class="el_package">com.safetynetalerts.SafetyNetAlerts.repository</a> &gt; <span class="el_source">ExtraProxy.java</span></div><h1>ExtraProxy.java</h1><pre class="source lang-java linenums">package com.safetynetalerts.SafetyNetAlerts.repository;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.safetynetalerts.SafetyNetAlerts.model.Firestation;
+import com.safetynetalerts.SafetyNetAlerts.model.MedicalRecord;
+import com.safetynetalerts.SafetyNetAlerts.model.Person;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+@Repository
+<span class="fc" id="L21">public class ExtraProxy implements IExtraProxy {</span>
+    
+    @Autowired
+    IRecoveredData recoveredData;
+    
+    
+    public String endpoint1ToJSon(String station) {
+<span class="fc" id="L28">        List&lt;Firestation&gt; firestationList = recoveredData.getFirestations();</span>
+<span class="fc" id="L29">        List&lt;Person&gt; personList = recoveredData.getPersons();</span>
+<span class="fc" id="L30">        List&lt;MedicalRecord&gt; medicalRecordList = recoveredData.getMedicalrecords();</span>
+        
+<span class="fc" id="L32">        List&lt;Person&gt; personPerGivenFirestation = new ArrayList&lt;&gt;();</span>
+        
+<span class="fc" id="L34">        HashMap&lt;String, Integer&gt; childrenAndAdults = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L35">        int countChildren = 0;</span>
+<span class="fc" id="L36">        int countAdults = 0;</span>
+        
+<span class="fc bfc" id="L38" title="All 2 branches covered.">        for (Firestation f : firestationList) {</span>
+<span class="fc bfc" id="L39" title="All 2 branches covered.">            if (f.getStation().equals(station)) {</span>
+<span class="fc bfc" id="L40" title="All 2 branches covered.">                for (Person p : personList) {</span>
+                    
+<span class="fc bfc" id="L42" title="All 2 branches covered.">                    if (f.getAddress().equals(p.getAddress())) {</span>
+<span class="fc" id="L43">                        personPerGivenFirestation.add(p);</span>
+<span class="fc bfc" id="L44" title="All 2 branches covered.">                        for (MedicalRecord m : medicalRecordList) {</span>
+<span class="pc bpc" id="L45" title="1 of 4 branches missed.">                            if (m.getFirstName().equals(p.getFirstName()) &amp;&amp; m.getLastName().equals(p.getLastName())) {</span>
+                                try {
+                                    
+<span class="fc" id="L48">                                    LocalDate actualDate = LocalDate.now();</span>
+<span class="fc" id="L49">                                    DateTimeFormatter pattern = DateTimeFormatter.ofPattern(&quot;MM/dd/yyyy&quot;);</span>
+<span class="fc" id="L50">                                    LocalDate birthdateDateFormat = LocalDate.parse(m.getBirthdate(), pattern);</span>
+<span class="fc" id="L51">                                    int age = Period.between(birthdateDateFormat, actualDate).getYears();</span>
+<span class="fc bfc" id="L52" title="All 2 branches covered.">                                    if (age &lt;= 18) {</span>
+<span class="fc" id="L53">                                        countChildren++;</span>
+                                    } else {
+<span class="fc" id="L55">                                        countAdults++;</span>
+                                    }
+<span class="fc" id="L57">                                    childrenAndAdults.put(&quot;children&quot;, countChildren);</span>
+<span class="fc" id="L58">                                    childrenAndAdults.put(&quot;adults&quot;, countAdults);</span>
+<span class="nc" id="L59">                                } catch (Exception e) {</span>
+<span class="nc" id="L60">                                    System.out.println(e.getMessage());</span>
+<span class="fc" id="L61">                                }</span>
+                                
+                            }
+<span class="fc" id="L64">                        }</span>
+                    }
+<span class="fc" id="L66">                }</span>
+            }
+<span class="fc" id="L68">        }</span>
+<span class="fc" id="L69">        String jsonString = &quot;&quot;;</span>
+        try {
+<span class="fc" id="L71">            ObjectMapper mapper = new ObjectMapper();</span>
+            
+<span class="fc" id="L73">            ArrayNode personDataNode = mapper.createArrayNode();</span>
+<span class="fc bfc" id="L74" title="All 2 branches covered.">            for (Person p : personPerGivenFirestation) {</span>
+<span class="fc" id="L75">                ObjectNode personUniqueDataNode = mapper.createObjectNode();</span>
+<span class="fc" id="L76">                personUniqueDataNode.put(&quot;firstName&quot;, p.getFirstName());</span>
+<span class="fc" id="L77">                personUniqueDataNode.put(&quot;lastName&quot;, p.getLastName());</span>
+<span class="fc" id="L78">                personUniqueDataNode.put(&quot;address&quot;, p.getAddress());</span>
+<span class="fc" id="L79">                personUniqueDataNode.put(&quot;phone&quot;, p.getPhone());</span>
+<span class="fc" id="L80">                personDataNode.add(personUniqueDataNode);</span>
+<span class="fc" id="L81">            }</span>
+            
+<span class="fc" id="L83">            ObjectNode childrenAndAdultsDataNode = mapper.createObjectNode();</span>
+<span class="fc" id="L84">            childrenAndAdultsDataNode.put(&quot;children&quot;, countChildren);</span>
+<span class="fc" id="L85">            childrenAndAdultsDataNode.put(&quot;adults&quot;, countAdults);</span>
+            
+<span class="fc" id="L87">            ObjectNode stationCompletNode = mapper.createObjectNode();</span>
+<span class="fc" id="L88">            stationCompletNode.put(&quot;station&quot;, station);</span>
+<span class="fc" id="L89">            stationCompletNode.set(&quot;persons&quot;, personDataNode);</span>
+<span class="fc" id="L90">            stationCompletNode.set(&quot;childrenAndAdults&quot;, childrenAndAdultsDataNode);</span>
+            
+<span class="fc" id="L92">            jsonString = mapper.writeValueAsString(stationCompletNode);</span>
+<span class="nc" id="L93">        } catch (Exception e) {</span>
+<span class="nc" id="L94">            System.out.println(e.getMessage());</span>
+<span class="fc" id="L95">        }</span>
+<span class="fc" id="L96">        return jsonString;</span>
+    }
+    
+    public String endpoint2ToJSon(String address) {
+<span class="fc" id="L100">        List&lt;Person&gt; personList = recoveredData.getPersons();</span>
+<span class="fc" id="L101">        List&lt;MedicalRecord&gt; medicalRecordList = recoveredData.getMedicalrecords();</span>
+        
+<span class="fc" id="L103">        List&lt;Person&gt; childrenListPerAddress = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L104">        List&lt;Person&gt; adultsListPerAddress = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L105">        List&lt;Integer&gt; childrenAgesPerAddress = new ArrayList&lt;&gt;();</span>
+        
+<span class="fc bfc" id="L107" title="All 2 branches covered.">        for (Person p : personList) {</span>
+<span class="fc bfc" id="L108" title="All 2 branches covered.">            if (address.equals(p.getAddress())) {</span>
+<span class="fc bfc" id="L109" title="All 2 branches covered.">                for (MedicalRecord m : medicalRecordList) {</span>
+<span class="pc bpc" id="L110" title="1 of 4 branches missed.">                    if (p.getFirstName().equals(m.getFirstName()) &amp;&amp; p.getLastName().equals(m.getLastName())) {</span>
+<span class="fc" id="L111">                        LocalDate actualDate = LocalDate.now();</span>
+<span class="fc" id="L112">                        DateTimeFormatter pattern = DateTimeFormatter.ofPattern(&quot;MM/dd/yyyy&quot;);</span>
+<span class="fc" id="L113">                        LocalDate birthdateDateFormat = LocalDate.parse(m.getBirthdate(), pattern);</span>
+<span class="fc" id="L114">                        int age = Period.between(birthdateDateFormat, actualDate).getYears();</span>
+<span class="fc bfc" id="L115" title="All 2 branches covered.">                        if (age &lt;= 18) {</span>
+<span class="fc" id="L116">                            childrenListPerAddress.add(p);</span>
+<span class="fc" id="L117">                            childrenAgesPerAddress.add(age);</span>
+                        } else {
+<span class="fc" id="L119">                            adultsListPerAddress.add(p);</span>
+                        }
+                    }
+<span class="fc" id="L122">                }</span>
+            }
+<span class="fc" id="L124">        }</span>
+        
+<span class="fc" id="L126">        String jsonString = &quot;&quot;;</span>
+        try {
+<span class="fc" id="L128">            ObjectMapper mapper = new ObjectMapper();</span>
+<span class="fc" id="L129">            ArrayNode otherPersonsDataNode = mapper.createArrayNode();</span>
+<span class="fc bfc" id="L130" title="All 2 branches covered.">            for (Person p : adultsListPerAddress) {</span>
+<span class="fc" id="L131">                ObjectNode otherPersonsUniqueDataNode = mapper.createObjectNode();</span>
+<span class="fc" id="L132">                otherPersonsUniqueDataNode.put(&quot;firstName&quot;, p.getFirstName());</span>
+<span class="fc" id="L133">                otherPersonsUniqueDataNode.put(&quot;lastName&quot;, p.getLastName());</span>
+<span class="fc" id="L134">                otherPersonsDataNode.add(otherPersonsUniqueDataNode);</span>
+<span class="fc" id="L135">            }</span>
+<span class="fc" id="L136">            ArrayNode childrenDataNode = mapper.createArrayNode();</span>
+<span class="fc bfc" id="L137" title="All 2 branches covered.">            for (Person p : childrenListPerAddress) {</span>
+<span class="fc" id="L138">                ObjectNode childrenUniqueDataNode = mapper.createObjectNode();</span>
+<span class="fc" id="L139">                childrenUniqueDataNode.put(&quot;firstName&quot;, p.getFirstName());</span>
+<span class="fc" id="L140">                childrenUniqueDataNode.put(&quot;lastName&quot;, p.getLastName());</span>
+<span class="fc" id="L141">                childrenUniqueDataNode.put(&quot;age&quot;, childrenAgesPerAddress.get(childrenListPerAddress.indexOf(p)));</span>
+<span class="fc" id="L142">                childrenDataNode.add(childrenUniqueDataNode);</span>
+<span class="fc" id="L143">            }</span>
+<span class="fc" id="L144">            ObjectNode childrenCompletNode = mapper.createObjectNode();</span>
+<span class="fc" id="L145">            childrenCompletNode.put(&quot;address&quot;, address);</span>
+<span class="fc" id="L146">            childrenCompletNode.set(&quot;childrenData&quot;, childrenDataNode);</span>
+<span class="fc" id="L147">            childrenCompletNode.set(&quot;otherPersonsPerAddress&quot;, otherPersonsDataNode);</span>
+<span class="fc" id="L148">            jsonString = mapper.writeValueAsString(childrenCompletNode);</span>
+<span class="nc" id="L149">        } catch (Exception e) {</span>
+<span class="nc" id="L150">            System.out.println(e.getMessage());</span>
+<span class="fc" id="L151">        }</span>
+<span class="fc" id="L152">        return jsonString;</span>
+    }
+    
+    public String endpoint3ToJSon(String station) {
+        
+<span class="fc" id="L157">        String jSonStringEndpoint1 = endpoint1ToJSon(station);</span>
+<span class="fc" id="L158">        String jsonString = &quot;&quot;;</span>
+<span class="fc" id="L159">        List&lt;String&gt; phoneNumbersPerGivenFirestation = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L160">        ObjectMapper mapper = new ObjectMapper();</span>
+        try {
+<span class="fc" id="L162">            JsonNode root = mapper.readTree(jSonStringEndpoint1);</span>
+<span class="fc" id="L163">            JsonNode personNode = root.path(&quot;persons&quot;);</span>
+<span class="fc bfc" id="L164" title="All 2 branches covered.">            for (JsonNode n : personNode) {</span>
+<span class="fc" id="L165">                String phone = n.path(&quot;phone&quot;).asText();</span>
+<span class="fc" id="L166">                phoneNumbersPerGivenFirestation.add(phone);</span>
+<span class="fc" id="L167">            }</span>
+<span class="fc" id="L168">            ArrayNode phoneNumbersDataNode = mapper.createArrayNode();</span>
+<span class="fc bfc" id="L169" title="All 2 branches covered.">            for (String phoneNo : phoneNumbersPerGivenFirestation) {</span>
+<span class="fc" id="L170">                phoneNumbersDataNode.add(phoneNo);</span>
+<span class="fc" id="L171">            }</span>
+<span class="fc" id="L172">            ObjectNode phonesCompletNode = mapper.createObjectNode();</span>
+<span class="fc" id="L173">            phonesCompletNode.put(&quot;station&quot;, station);</span>
+<span class="fc" id="L174">            phonesCompletNode.set(&quot;phoneNumbers&quot;, phoneNumbersDataNode);</span>
+<span class="fc" id="L175">            jsonString = mapper.writeValueAsString(phonesCompletNode);</span>
+<span class="nc" id="L176">        } catch (Exception e) {</span>
+<span class="nc" id="L177">            System.out.println(e.getMessage());</span>
+<span class="fc" id="L178">        }</span>
+<span class="fc" id="L179">        return jsonString;</span>
+    }
+    
+    public String endpoint4ToJSon(String address) {
+<span class="fc" id="L183">        String jsonString = &quot;&quot;;</span>
+<span class="fc" id="L184">        List&lt;Person&gt; personList = recoveredData.getPersons();</span>
+<span class="fc" id="L185">        List&lt;MedicalRecord&gt; medicalRecordsList = recoveredData.getMedicalrecords();</span>
+<span class="fc" id="L186">        List&lt;Firestation&gt; firestationList = recoveredData.getFirestations();</span>
+<span class="fc" id="L187">        List&lt;Integer&gt; ages = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L188">        List&lt;Person&gt; personsPerAddress = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L189">        String firestationPerAddress = null;</span>
+<span class="fc bfc" id="L190" title="All 2 branches covered.">        for (Firestation firestation : firestationList) {</span>
+<span class="fc bfc" id="L191" title="All 2 branches covered.">            if (firestation.getAddress().equals(address)) {</span>
+<span class="fc" id="L192">                firestationPerAddress = firestation.getStation();</span>
+            }
+<span class="fc" id="L194">        }</span>
+<span class="fc bfc" id="L195" title="All 2 branches covered.">        for (Person p : personList) {</span>
+<span class="fc bfc" id="L196" title="All 2 branches covered.">            if (p.getAddress().equals(address)) {</span>
+<span class="fc" id="L197">                personsPerAddress.add(p);</span>
+<span class="fc bfc" id="L198" title="All 2 branches covered.">                for (MedicalRecord m : medicalRecordsList) {</span>
+<span class="pc bpc" id="L199" title="1 of 4 branches missed.">                    if (p.getFirstName().equals(m.getFirstName()) &amp;&amp; p.getLastName().equals(m.getLastName())) {</span>
+                        
+<span class="fc" id="L201">                        LocalDate actualDate = LocalDate.now();</span>
+<span class="fc" id="L202">                        DateTimeFormatter pattern = DateTimeFormatter.ofPattern(&quot;MM/dd/yyyy&quot;);</span>
+<span class="fc" id="L203">                        LocalDate birthdateDateFormat = LocalDate.parse(m.getBirthdate(), pattern);</span>
+<span class="fc" id="L204">                        ages.add(Period.between(birthdateDateFormat, actualDate).getYears());</span>
+                    }
+<span class="fc" id="L206">                }</span>
+            }
+<span class="fc" id="L208">        }</span>
+        
+<span class="fc" id="L210">        ObjectMapper mapper = new ObjectMapper();</span>
+        try {
+<span class="fc" id="L212">            ArrayNode personsDataNode = mapper.createArrayNode();</span>
+<span class="fc bfc" id="L213" title="All 2 branches covered.">            for (Person p : personsPerAddress) {</span>
+<span class="fc" id="L214">                ObjectNode personsUniqueDataNode = mapper.createObjectNode();</span>
+<span class="fc" id="L215">                personsUniqueDataNode.put(&quot;lastName&quot;, p.getLastName());</span>
+<span class="fc" id="L216">                personsUniqueDataNode.put(&quot;phone&quot;, p.getPhone());</span>
+<span class="fc" id="L217">                personsUniqueDataNode.put(&quot;age&quot;, ages.get(personList.indexOf(p)));</span>
+                // personsUniqueDataNode.put(&quot;station&quot;, firestationPerAddress);
+<span class="fc" id="L219">                ArrayNode medicationsArrayDataNode = mapper.createArrayNode();</span>
+<span class="fc bfc" id="L220" title="All 2 branches covered.">                for (String medication : medicalRecordsList.get(personList.indexOf(p)).getMedications()) {</span>
+<span class="fc" id="L221">                    medicationsArrayDataNode.add(medication);</span>
+<span class="fc" id="L222">                }</span>
+<span class="fc" id="L223">                personsUniqueDataNode.put(&quot;medications&quot;,</span>
+                        medicationsArrayDataNode);
+<span class="fc" id="L225">                ArrayNode allergiesArrayDataNode = mapper.createArrayNode();</span>
+<span class="fc bfc" id="L226" title="All 2 branches covered.">                for (String allergie : medicalRecordsList.get(personList.indexOf(p)).getAllergies()) {</span>
+<span class="fc" id="L227">                    allergiesArrayDataNode.add(allergie);</span>
+<span class="fc" id="L228">                }</span>
+<span class="fc" id="L229">                personsUniqueDataNode.put(&quot;allergies&quot;,</span>
+                        allergiesArrayDataNode);
+<span class="fc" id="L231">                personsDataNode.add(personsUniqueDataNode);</span>
+<span class="fc" id="L232">            }</span>
+<span class="fc" id="L233">            ObjectNode completNode = mapper.createObjectNode();</span>
+<span class="fc" id="L234">            completNode.put(&quot;address&quot;, address);</span>
+<span class="fc" id="L235">            completNode.put(&quot;station&quot;, firestationPerAddress);</span>
+<span class="fc" id="L236">            completNode.set(&quot;personsData&quot;, personsDataNode);</span>
+<span class="fc" id="L237">            jsonString = mapper.writeValueAsString(completNode);</span>
+            
+<span class="nc" id="L239">        } catch (Exception e) {</span>
+<span class="nc" id="L240">            System.out.println(e.getMessage());</span>
+<span class="fc" id="L241">        }</span>
+        
+        
+<span class="fc" id="L244">        return jsonString;</span>
+    }
+    
+    public String endpoint5ToJSon(String station) {
+<span class="fc" id="L248">        String jsonString = &quot;&quot;;</span>
+<span class="fc" id="L249">        List&lt;Person&gt; personList = recoveredData.getPersons();</span>
+<span class="fc" id="L250">        List&lt;MedicalRecord&gt; medicalRecordsList = recoveredData.getMedicalrecords();</span>
+<span class="fc" id="L251">        List&lt;Firestation&gt; firestationList = recoveredData.getFirestations();</span>
+<span class="fc" id="L252">        List&lt;Integer&gt; ages = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L253">        List&lt;Person&gt; personsPerFirestation = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L254">        List&lt;MedicalRecord&gt; medicalRecordsPerFirestation = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L255">        List&lt;String&gt; addressesPerFirestation = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L256" title="All 2 branches covered.">        for (Firestation firestation : firestationList) {</span>
+<span class="fc bfc" id="L257" title="All 2 branches covered.">            if (firestation.getStation().equals(station)) {</span>
+<span class="fc bfc" id="L258" title="All 2 branches covered.">                for (Person person : personList) {</span>
+<span class="fc bfc" id="L259" title="All 2 branches covered.">                    if (firestation.getAddress().equals(person.getAddress())) {</span>
+<span class="fc bfc" id="L260" title="All 2 branches covered.">                        if (!addressesPerFirestation.contains(person.getAddress())) {</span>
+<span class="fc" id="L261">                            addressesPerFirestation.add(person.getAddress());</span>
+                        }
+<span class="fc" id="L263">                        personsPerFirestation.add(person);</span>
+<span class="fc bfc" id="L264" title="All 2 branches covered.">                        for (MedicalRecord medicalRecord : medicalRecordsList) {</span>
+<span class="pc bpc" id="L265" title="1 of 4 branches missed.">                            if (person.getFirstName().equals(medicalRecord.getFirstName()) &amp;&amp; person.getLastName().equals(medicalRecord.getLastName())) {</span>
+<span class="fc" id="L266">                                medicalRecordsPerFirestation.add(medicalRecord);</span>
+<span class="fc" id="L267">                                LocalDate actualDate = LocalDate.now();</span>
+<span class="fc" id="L268">                                DateTimeFormatter pattern = DateTimeFormatter.ofPattern(&quot;MM/dd/yyyy&quot;);</span>
+<span class="fc" id="L269">                                LocalDate birthdateDateFormat = LocalDate.parse(medicalRecord.getBirthdate(), pattern);</span>
+<span class="fc" id="L270">                                ages.add(Period.between(birthdateDateFormat, actualDate).getYears());</span>
+                            }
+<span class="fc" id="L272">                        }</span>
+                    }
+<span class="fc" id="L274">                }</span>
+            }
+<span class="fc" id="L276">        }</span>
+<span class="fc" id="L277">        ObjectMapper mapper = new ObjectMapper();</span>
+        try {
+            
+<span class="fc" id="L280">            ArrayNode personAddressDataNode = mapper.createArrayNode();</span>
+<span class="fc bfc" id="L281" title="All 2 branches covered.">            for (String address : addressesPerFirestation) {</span>
+<span class="fc" id="L282">                ObjectNode personAddressUniqueDataNode = mapper.createObjectNode();</span>
+<span class="fc" id="L283">                personAddressUniqueDataNode.put(&quot;address&quot;, address);</span>
+                
+<span class="fc" id="L285">                ArrayNode personsNode = mapper.createArrayNode();</span>
+<span class="fc" id="L286">                ObjectNode personsUniqueDataNode = mapper.createObjectNode();</span>
+<span class="fc bfc" id="L287" title="All 2 branches covered.">                for (Person p : personsPerFirestation) {</span>
+                    
+<span class="fc bfc" id="L289" title="All 2 branches covered.">                    if (p.getAddress().equals(address)) {</span>
+                        
+<span class="fc" id="L291">                        personsUniqueDataNode.put(&quot;lastName&quot;, p.getLastName());</span>
+<span class="fc" id="L292">                        personsUniqueDataNode.put(&quot;phone&quot;, p.getPhone());</span>
+<span class="fc" id="L293">                        personsUniqueDataNode.put(&quot;age&quot;, ages.get(personsPerFirestation.indexOf(p)));</span>
+                        
+<span class="fc" id="L295">                        ArrayNode medicationsArrayDataNode = mapper.createArrayNode();</span>
+<span class="fc bfc" id="L296" title="All 2 branches covered.">                        for (String medication : medicalRecordsPerFirestation.get(personsPerFirestation.indexOf(p)).getMedications()) {</span>
+<span class="fc" id="L297">                            medicationsArrayDataNode.add(medication);</span>
+<span class="fc" id="L298">                        }</span>
+<span class="fc" id="L299">                        personsUniqueDataNode.put(&quot;medications&quot;,</span>
+                                medicationsArrayDataNode);
+<span class="fc" id="L301">                        ArrayNode allergiesArrayDataNode = mapper.createArrayNode();</span>
+<span class="fc bfc" id="L302" title="All 2 branches covered.">                        for (String allergie : medicalRecordsPerFirestation.get(personsPerFirestation.indexOf(p)).getAllergies()) {</span>
+<span class="fc" id="L303">                            allergiesArrayDataNode.add(allergie);</span>
+<span class="fc" id="L304">                        }</span>
+<span class="fc" id="L305">                        personsUniqueDataNode.put(&quot;allergies&quot;,</span>
+                                allergiesArrayDataNode);
+<span class="fc" id="L307">                        personsNode.add(personsUniqueDataNode);</span>
+                    }
+<span class="fc" id="L309">                    personAddressUniqueDataNode.put(&quot;personsPerAddress&quot;, personsNode);</span>
+<span class="fc" id="L310">                }</span>
+<span class="fc" id="L311">                personAddressDataNode.add(personAddressUniqueDataNode);</span>
+<span class="fc" id="L312">            }</span>
+<span class="fc" id="L313">            ObjectNode stationCompletNode = mapper.createObjectNode();</span>
+<span class="fc" id="L314">            stationCompletNode.put(&quot;station&quot;, station);</span>
+<span class="fc" id="L315">            stationCompletNode.set(&quot;addressesAndPersons&quot;, personAddressDataNode);</span>
+<span class="fc" id="L316">            jsonString = mapper.writeValueAsString(stationCompletNode);</span>
+<span class="nc" id="L317">        } catch (Exception e) {</span>
+<span class="nc" id="L318">            System.out.println(e.getMessage());</span>
+<span class="fc" id="L319">        }</span>
+        
+        
+<span class="fc" id="L322">        return jsonString;</span>
+    }
+    
+    public String endpoint6ToJSon() {
+<span class="fc" id="L326">        String jsonString = &quot;&quot;;</span>
+<span class="fc" id="L327">        List&lt;Person&gt; personList = recoveredData.getPersons();</span>
+<span class="fc" id="L328">        List&lt;MedicalRecord&gt; medicalRecordsList = recoveredData.getMedicalrecords();</span>
+<span class="fc" id="L329">        List&lt;Integer&gt; ages = new ArrayList&lt;&gt;();</span>
+        
+<span class="fc bfc" id="L331" title="All 2 branches covered.">        for (MedicalRecord m : medicalRecordsList) {</span>
+<span class="fc" id="L332">            LocalDate actualDate = LocalDate.now();</span>
+<span class="fc" id="L333">            DateTimeFormatter pattern = DateTimeFormatter.ofPattern(&quot;MM/dd/yyyy&quot;);</span>
+<span class="fc" id="L334">            LocalDate birthdateDateFormat = LocalDate.parse(m.getBirthdate(), pattern);</span>
+<span class="fc" id="L335">            ages.add(Period.between(birthdateDateFormat, actualDate).getYears());</span>
+<span class="fc" id="L336">        }</span>
+<span class="fc" id="L337">        ObjectMapper mapper = new ObjectMapper();</span>
+        try {
+<span class="fc" id="L339">            ArrayNode personsDataNode = mapper.createArrayNode();</span>
+<span class="fc bfc" id="L340" title="All 2 branches covered.">            for (Person p : personList) {</span>
+<span class="fc" id="L341">                ObjectNode personsUniqueDataNode = mapper.createObjectNode();</span>
+<span class="fc" id="L342">                personsUniqueDataNode.put(&quot;lastName&quot;, p.getLastName());</span>
+<span class="fc" id="L343">                personsUniqueDataNode.put(&quot;address&quot;, p.getAddress());</span>
+<span class="fc" id="L344">                personsUniqueDataNode.put(&quot;age&quot;, ages.get(personList.indexOf(p)));</span>
+<span class="fc" id="L345">                personsUniqueDataNode.put(&quot;email&quot;, p.getEmail());</span>
+                
+<span class="fc" id="L347">                ArrayNode medicationsArrayDataNode = mapper.createArrayNode();</span>
+<span class="fc bfc" id="L348" title="All 2 branches covered.">                for (String medication : medicalRecordsList.get(personList.indexOf(p)).getMedications()) {</span>
+<span class="fc" id="L349">                    medicationsArrayDataNode.add(medication);</span>
+<span class="fc" id="L350">                }</span>
+<span class="fc" id="L351">                personsUniqueDataNode.put(&quot;medications&quot;,</span>
+                        medicationsArrayDataNode);
+<span class="fc" id="L353">                ArrayNode allergiesArrayDataNode = mapper.createArrayNode();</span>
+<span class="fc bfc" id="L354" title="All 2 branches covered.">                for (String allergie : medicalRecordsList.get(personList.indexOf(p)).getAllergies()) {</span>
+<span class="fc" id="L355">                    allergiesArrayDataNode.add(allergie);</span>
+<span class="fc" id="L356">                }</span>
+<span class="fc" id="L357">                personsUniqueDataNode.put(&quot;allergies&quot;,</span>
+<span class="fc" id="L358">                        allergiesArrayDataNode.toString());</span>
+<span class="fc" id="L359">                personsDataNode.add(personsUniqueDataNode);</span>
+<span class="fc" id="L360">            }</span>
+            
+<span class="fc" id="L362">            jsonString = mapper.writeValueAsString(personsDataNode);</span>
+<span class="nc" id="L363">        } catch (Exception e) {</span>
+<span class="nc" id="L364">            System.out.println(e.getMessage());</span>
+<span class="fc" id="L365">        }</span>
+        
+        
+<span class="fc" id="L368">        return jsonString;</span>
+    }
+    
+    public String endpoint7ToJSon(String city) {
+<span class="fc" id="L372">        String jsonString = &quot;&quot;;</span>
+<span class="fc" id="L373">        List&lt;Person&gt; personList = recoveredData.getPersons();</span>
+<span class="fc" id="L374">        List&lt;String&gt; emailPerCity = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L375" title="All 2 branches covered.">        for (Person p : personList) {</span>
+<span class="pc bpc" id="L376" title="1 of 2 branches missed.">            if (p.getCity().equals(city)) {</span>
+<span class="fc" id="L377">                emailPerCity.add(p.getEmail());</span>
+            }
+<span class="fc" id="L379">        }</span>
+<span class="fc" id="L380">        ObjectMapper mapper = new ObjectMapper();</span>
+        try {
+<span class="fc" id="L382">            ArrayNode emailsDataNode = mapper.createArrayNode();</span>
+<span class="fc bfc" id="L383" title="All 2 branches covered.">            for (String email : emailPerCity) {</span>
+<span class="fc" id="L384">                emailsDataNode.add(email);</span>
+<span class="fc" id="L385">            }</span>
+<span class="fc" id="L386">            ObjectNode emailCompletNode = mapper.createObjectNode();</span>
+<span class="fc" id="L387">            emailCompletNode.put(&quot;city&quot;, city);</span>
+<span class="fc" id="L388">            emailCompletNode.set(&quot;emails&quot;, emailsDataNode);</span>
+<span class="fc" id="L389">            jsonString = mapper.writeValueAsString(emailCompletNode);</span>
+<span class="nc" id="L390">        } catch (Exception e) {</span>
+<span class="nc" id="L391">            System.out.println(e.getMessage());</span>
+<span class="fc" id="L392">        }</span>
+<span class="fc" id="L393">        return jsonString;</span>
+    }
+    
+    @Override
+    public void setRecoveredData(IRecoveredData recoveredData) {
+<span class="fc" id="L398">        this.recoveredData = recoveredData;</span>
+<span class="fc" id="L399">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
