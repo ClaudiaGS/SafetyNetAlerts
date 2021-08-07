@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PersonsProxy.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">SafetyFirstApp</a> &gt; <a href="index.source.html" class="el_package">com.safetyfirst.SafetyFirstApp.repository</a> &gt; <span class="el_source">PersonsProxy.java</span></div><h1>PersonsProxy.java</h1><pre class="source lang-java linenums">package com.safetyfirst.SafetyFirstApp.repository;
+
+import com.safetyfirst.SafetyFirstApp.model.Person;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+@Repository
+<span class="fc" id="L12">public class PersonsProxy implements IPersonsProxy{</span>
+    @Autowired
+    IRecoveredData recoveredData;
+    
+    @Override
+    public List&lt;Person&gt; readPersons() {
+<span class="fc" id="L18">        List&lt;Person&gt; persons = recoveredData.getPersons();</span>
+<span class="fc" id="L19">        return persons;</span>
+    }
+    
+    @Override
+    public List&lt;Person&gt; deletePerson(String firstName, String lastName) {
+<span class="fc" id="L24">        List&lt;Person&gt; persons = recoveredData.getPersons();</span>
+<span class="fc" id="L25">        Person personToDelete = null;</span>
+<span class="fc bfc" id="L26" title="All 2 branches covered.">        for (Person p : persons) {</span>
+<span class="pc bpc" id="L27" title="1 of 4 branches missed.">            if (p.getFirstName().equals(firstName) &amp;&amp; p.getLastName().equals(lastName)) {</span>
+<span class="fc" id="L28">                personToDelete = p;</span>
+            }
+<span class="fc" id="L30">        }</span>
+<span class="fc" id="L31">        persons.remove(personToDelete);</span>
+<span class="fc" id="L32">        return persons;</span>
+    }
+    
+    @Override
+    public List&lt;Person&gt; modifyPerson(String firstName, String lastName, HashMap&lt;String, String&gt; params) {
+<span class="fc" id="L37">        List&lt;Person&gt; persons = recoveredData.getPersons();</span>
+<span class="fc bfc" id="L38" title="All 2 branches covered.">        for (Person p : persons) {</span>
+<span class="pc bpc" id="L39" title="1 of 4 branches missed.">            if (p.getFirstName().equals(firstName) &amp;&amp; p.getLastName().equals(lastName)) {</span>
+<span class="fc bfc" id="L40" title="All 2 branches covered.">                for (Map.Entry&lt;String, String&gt; entry : params.entrySet()) {</span>
+<span class="pc bpc" id="L41" title="7 of 8 branches missed.">                    switch (entry.getKey()) {</span>
+                        case &quot;firstName&quot;:
+<span class="nc" id="L43">                            p.setFirstName(entry.getValue());</span>
+<span class="nc" id="L44">                            break;</span>
+                        case &quot;lastName&quot;:
+<span class="nc" id="L46">                            p.setLastName(entry.getValue());</span>
+<span class="nc" id="L47">                            break;</span>
+                        case &quot;address&quot;:
+<span class="nc" id="L49">                            p.setAddress(entry.getValue());</span>
+<span class="nc" id="L50">                            break;</span>
+                        case &quot;city&quot;:
+<span class="nc" id="L52">                            p.setCity(entry.getValue());</span>
+<span class="nc" id="L53">                            break;</span>
+                        case &quot;zip&quot;:
+<span class="nc" id="L55">                            p.setZip(entry.getValue());</span>
+<span class="nc" id="L56">                            break;</span>
+                        case &quot;phone&quot;:
+<span class="fc" id="L58">                            p.setPhone(entry.getValue());</span>
+<span class="fc" id="L59">                            break;</span>
+                        case &quot;email&quot;:
+<span class="nc" id="L61">                            p.setEmail(entry.getValue());</span>
+<span class="nc" id="L62">                            break;</span>
+                        default:
+<span class="nc" id="L64">                            System.out.println(&quot;Trying to modify unexisting parameter&quot;);</span>
+                            break;
+                    }
+<span class="fc" id="L67">                }</span>
+            }
+<span class="fc" id="L69">        }</span>
+<span class="fc" id="L70">        return persons;</span>
+    }
+    
+    @Override
+    public List&lt;Person&gt; addPerson(Person person) {
+<span class="fc" id="L75">        List&lt;Person&gt; persons = recoveredData.getPersons();</span>
+<span class="fc" id="L76">        persons.add(person);</span>
+<span class="fc" id="L77">        return persons;</span>
+    }
+    @Override
+    public void setRecoveredData(IRecoveredData recoveredData) {
+<span class="fc" id="L81">        this.recoveredData = recoveredData;</span>
+<span class="fc" id="L82">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

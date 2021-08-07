@@ -1,0 +1,43 @@
+HELP.md
+target/*
+!target/jacoco-integration-test-coverage-report
+!target/jacoco-merged-reports
+!target/jacoco-unit-test-coverage-report
+!target/jacoco-output
+<<<<<<< HEAD
+=======
+!target/site
+target/site/*
+!target/site/surefire-report.html
+>>>>>>> 6642dad (surefire report Added2)
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
