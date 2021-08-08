@@ -1,8 +1,8 @@
 package com.safetynetalerts.SafetyNetAlerts.repository;
 
 import com.safetynetalerts.SafetyNetAlerts.model.Person;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -12,21 +12,23 @@ import java.util.Map;
 
 @Repository
 public class PersonsProxy implements IPersonsProxy {
-    private static final Logger logger = LoggerFactory.getLogger(PersonsProxy.class);
+    
+    private static final Logger logger = LogManager.getLogger(PersonsProxy.class);
     
     @Autowired
     IRecoveredData recoveredData;
     
     @Override
     public List<Person> readPersons() {
-        logger.info("Reading all persons from JSON");
+        logger.debug("Reading all persons from JSON");
         List<Person> persons = recoveredData.getPersons();
+        logger.info("Person list is "+persons);
         return persons;
     }
     
     @Override
     public List<Person> deletePerson(String firstName, String lastName) {
-        logger.info("Deleting person " + firstName + lastName);
+        logger.debug("Deleting person " + firstName + lastName);
         List<Person> persons = recoveredData.getPersons();
         Person personToDelete = null;
         for (Person p : persons) {
@@ -35,15 +37,16 @@ public class PersonsProxy implements IPersonsProxy {
             }
         }
         if (personToDelete == null) {
-            logger.warn("Person not in list");
+            logger.error("Person not in list");
         }
         persons.remove(personToDelete);
+        logger.info("Person list after delete is "+persons);
         return persons;
     }
     
     @Override
     public List<Person> modifyPerson(String firstName, String lastName, HashMap<String, String> params) {
-        logger.info("Modify person "+firstName+" "+lastName+"with new parameters "+params.toString());
+        logger.debug("Modify person "+firstName+" "+lastName+"with new parameters "+params.toString());
         List<Person> persons = recoveredData.getPersons();
         int logIndex=-1;
         for (Person p : persons) {
@@ -80,16 +83,18 @@ public class PersonsProxy implements IPersonsProxy {
             }
         }
         if(logIndex==-1){
-            logger.warn("Person not in list");
+            logger.error("Person not in list");
         }
+        logger.info("Person list after modification is "+persons);
         return persons;
     }
     
     @Override
     public List<Person> addPerson(Person person) {
-        logger.info("Adding person");
+        logger.debug("Adding person");
         List<Person> persons = recoveredData.getPersons();
         persons.add(person);
+        logger.info("Person list after adding "+person+" is"+persons);
         return persons;
     }
     
