@@ -1,8 +1,8 @@
 package com.safetynetalerts.SafetyNetAlerts.repository;
 
 import com.safetynetalerts.SafetyNetAlerts.model.Firestation;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -13,21 +13,22 @@ import java.util.Map;
 
 @Repository
 public class FirestationsProxy implements IFirestationsProxy {
-    private static final Logger logger = LoggerFactory.getLogger(PersonsProxy.class);
+    private static final Logger logger = LogManager.getLogger(FirestationsProxy.class);
     
     @Autowired
     IRecoveredData recoveredData;
     
     @Override
     public List<Firestation> readFirestations() {
-        logger.info("Read firestation info from JSON");
+        logger.debug("Read firestation info from JSON");
         List<Firestation> firestations = recoveredData.getFirestations();
+        logger.info("Firestation list is "+firestations);
         return firestations;
     }
     
     @Override
     public List<Firestation> deleteFirestation(HashMap<String, String> addressOrStation) {
-        logger.info("Delete firestation for " + addressOrStation.toString());
+        logger.debug("Delete firestation for " + addressOrStation.toString());
         List<Firestation> firestations = recoveredData.getFirestations();
         ArrayList<Firestation> toRemove = new ArrayList<Firestation>();
         int loggerIndex = -1;
@@ -55,17 +56,18 @@ public class FirestationsProxy implements IFirestationsProxy {
             }
         }
         if (loggerIndex == -1) {
-            logger.warn("Address or station not in list");
+            logger.error("Address or station not in list");
         }
         for (Firestation f : toRemove) {
             firestations.remove(f);
         }
+        logger.info("Firestation list after delete is "+firestations);
         return firestations;
     }
     
     @Override
     public List<Firestation> modifyFirestation(String address, String station) {
-        logger.info("Modify firestation: " + address + " goes to station " + station);
+        logger.debug("Modify firestation: " + address + " goes to station " + station);
         List<Firestation> firestationList = recoveredData.getFirestations();
         int loggerIndex=-1;
         for (Firestation f : firestationList) {
@@ -75,19 +77,21 @@ public class FirestationsProxy implements IFirestationsProxy {
             }
         }
         if(loggerIndex==-1) {
-            logger.warn("Address not found");
+            logger.error("Address not found");
         }
+        logger.info("Firestation list after modification is "+firestationList);
         return firestationList;
     }
     
     @Override
     public List<Firestation> addFirestation(String address, String station) {
-        logger.info("Add address " + address + " to station " + station);
+        logger.debug("Add address " + address + " to station " + station);
         List<Firestation> firestationList = recoveredData.getFirestations();
         Firestation f = new Firestation();
         f.setAddress(address);
         f.setStation(station);
         firestationList.add(f);
+        logger.info("Firestation list after adding firestation is "+firestationList);
         return firestationList;
     }
     
