@@ -29,7 +29,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class FirestationControllerTest {
     @Autowired
     private MockMvc mvc;
-    
     @MockBean
     IFirestationService firestationService;
     

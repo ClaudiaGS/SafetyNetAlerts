@@ -1,7 +1,7 @@
 package com.safetynetalerts.SafetyNetAlerts.integration;
 
 import com.safetynetalerts.SafetyNetAlerts.config.DataSources;
-import com.safetynetalerts.SafetyNetAlerts.integration.config.RecoveredTestData;
+import com.safetynetalerts.SafetyNetAlerts.integration.config.DataTestConfig;
 import com.safetynetalerts.SafetyNetAlerts.repository.IExtraProxy;
 import com.safetynetalerts.SafetyNetAlerts.repository.IRecoveredData;
 import com.safetynetalerts.SafetyNetAlerts.service.IExtraService;
@@ -9,9 +9,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.Import;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-
+@Import(DataTestConfig.class)
 @SpringBootTest
 public class ExtraServiceIT {
     
@@ -23,8 +24,8 @@ public class ExtraServiceIT {
     @Autowired
     DataSources dataSources;
     
-    
-    IRecoveredData recoveredTestData = new RecoveredTestData();
+    @Autowired
+    IRecoveredData recoveredTestData;
     
     
     @BeforeEach
