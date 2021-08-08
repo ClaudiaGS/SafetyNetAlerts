@@ -1,30 +1,30 @@
 package com.safetynetalerts.SafetyNetAlerts.repository;
 
 import com.safetynetalerts.SafetyNetAlerts.model.MedicalRecord;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 @Repository
 public class MedicalRecordsProxy implements IMedicalRecordsProxy {
-    private static final Logger logger = LoggerFactory.getLogger(PersonsProxy.class);
+    private static final Logger logger = LogManager.getLogger(MedicalRecordsProxy.class);
     
     @Autowired
     IRecoveredData recoveredData;
     
     @Override
     public List<MedicalRecord> readMedicalRecords() {
-        logger.info("Reading medical records from JSON");
+        logger.debug("Reading medical records from JSON");
         List<MedicalRecord> medicalRecords = recoveredData.getMedicalrecords();
-        System.out.println("medical records list is " + medicalRecords);
+        logger.info("Medical record list is "+medicalRecords);
         return medicalRecords;
     }
     
     @Override
     public List<MedicalRecord> deleteMedicalRecord(String firstName, String lastName) {
-        logger.info("Delete medical record for " + firstName + " " + lastName);
+        logger.debug("Delete medical record for " + firstName + " " + lastName);
         List<MedicalRecord> medicalRecords = recoveredData.getMedicalrecords();
         MedicalRecord medicalRecordToDelete = null;
         for (MedicalRecord m : medicalRecords) {
@@ -33,15 +33,16 @@ public class MedicalRecordsProxy implements IMedicalRecordsProxy {
             }
         }
         if (medicalRecordToDelete == null) {
-            logger.warn("Medical record not in list.");
+            logger.error("Medical record not in list.");
         }
         medicalRecords.remove(medicalRecordToDelete);
+        logger.info("Medical Record list after delete is "+medicalRecords);
         return medicalRecords;
     }
     
     @Override
     public List<MedicalRecord> modifyMedicalRecord(String firstName, String lastName, List<String> newMedications, List<String> newAllergies) {
-        logger.info("Modify medical record for " + firstName + " " + lastName + " with " + newMedications.toString() + " and " + newAllergies.toString());
+        logger.debug("Modify medical record for " + firstName + " " + lastName + " with " + newMedications.toString() + " and " + newAllergies.toString());
         List<MedicalRecord> medicalRecordList = recoveredData.getMedicalrecords();
         int loggerIndex=-1;
         for (MedicalRecord m : medicalRecordList) {
@@ -58,17 +59,19 @@ public class MedicalRecordsProxy implements IMedicalRecordsProxy {
             }
         }
         if(loggerIndex==-1){
-            logger.warn("Medical record not in list");
+            logger.error("Medical record not in list");
         }
+        logger.info("Medical Record List after modification is "+medicalRecordList);
         return medicalRecordList;
         
     }
     
     @Override
     public List<MedicalRecord> addMedicalRecord(MedicalRecord medicalRecord) {
-        logger.info("Adding medical record");
+        logger.debug("Adding medical record");
         List<MedicalRecord> medicalRecords = recoveredData.getMedicalrecords();
         medicalRecords.add(medicalRecord);
+        logger.info("Medical Record list after adding medical record is "+medicalRecords);
         return medicalRecords;
     }
     

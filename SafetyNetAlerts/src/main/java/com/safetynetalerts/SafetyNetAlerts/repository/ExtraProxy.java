@@ -7,8 +7,8 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.safetynetalerts.SafetyNetAlerts.model.Firestation;
 import com.safetynetalerts.SafetyNetAlerts.model.MedicalRecord;
 import com.safetynetalerts.SafetyNetAlerts.model.Person;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -23,14 +23,14 @@ import java.util.List;
 @Repository
 public class ExtraProxy implements IExtraProxy {
     
-    private static final Logger logger = LoggerFactory.getLogger(PersonsProxy.class);
+    private static final Logger logger = LogManager.getLogger(ExtraProxy.class);
     
     @Autowired
     IRecoveredData recoveredData;
     
     
     public String endpoint1ToJSon(String station) {
-        logger.info("Chosing data for endpoint1");
+        logger.debug("Chosing data for endpoint1");
         List<Firestation> firestationList = recoveredData.getFirestations();
         List<Person> personList = recoveredData.getPersons();
         List<MedicalRecord> medicalRecordList = recoveredData.getMedicalrecords();
@@ -71,11 +71,11 @@ public class ExtraProxy implements IExtraProxy {
             }
         }
         if (age == -1) {
-            logger.warn("Station number not valid");
+            logger.error("Station number not valid");
         }
         String jsonString = "";
         try {
-            logger.info("Create exit String for endpoint1");
+            logger.debug("Create exit String for endpoint1");
             ObjectMapper mapper = new ObjectMapper();
             ArrayNode personDataNode = mapper.createArrayNode();
             for (Person p : personPerGivenFirestation) {
@@ -99,12 +99,14 @@ public class ExtraProxy implements IExtraProxy {
             jsonString = mapper.writeValueAsString(stationCompletNode);
         } catch (Exception e) {
             System.out.println(e.getMessage());
+            logger.error(e.getMessage());
         }
+        logger.info("Exit data for endpoint 1 is "+jsonString);
         return jsonString;
     }
     
     public String endpoint2ToJSon(String address) {
-        logger.info("Chosing data for endpoint2");
+        logger.debug("Chosing data for endpoint2");
         List<Person> personList = recoveredData.getPersons();
         List<MedicalRecord> medicalRecordList = recoveredData.getMedicalrecords();
         
@@ -132,12 +134,12 @@ public class ExtraProxy implements IExtraProxy {
             }
         }
         if(loggerIndex==-1){
-            logger.warn("Address not valid");
+            logger.error("Address not valid");
         }
         
         String jsonString = "";
         try {
-            logger.info("Create String for endpoint2");
+            logger.debug("Create String for endpoint2");
             ObjectMapper mapper = new ObjectMapper();
             ArrayNode otherPersonsDataNode = mapper.createArrayNode();
             for (Person p : adultsListPerAddress) {
@@ -161,17 +163,19 @@ public class ExtraProxy implements IExtraProxy {
             jsonString = mapper.writeValueAsString(childrenCompletNode);
         } catch (Exception e) {
             System.out.println(e.getMessage());
+            logger.error(e.getMessage());
         }
+        logger.info("Exit data for endpoint 2 is "+jsonString);
         return jsonString;
     }
     public String endpoint3ToJSon(String station) {
-        logger.info("Chosing data for endpoint3");
+        logger.debug("Chosing data for endpoint3");
         String jSonStringEndpoint1 = endpoint1ToJSon(station);
         String jsonString = "";
         List<String> phoneNumbersPerGivenFirestation = new ArrayList<>();
         ObjectMapper mapper = new ObjectMapper();
         try {
-            logger.info("Create exit String for endpoint3");
+            logger.debug("Create exit String for endpoint3");
             JsonNode root = mapper.readTree(jSonStringEndpoint1);
             JsonNode personNode = root.path("persons");
             for (JsonNode n : personNode) {
@@ -188,12 +192,14 @@ public class ExtraProxy implements IExtraProxy {
             jsonString = mapper.writeValueAsString(phonesCompletNode);
         } catch (Exception e) {
             System.out.println(e.getMessage());
+            logger.error(e.getMessage());
         }
+        logger.info("Exit data for endpoint 3 is "+jsonString);
         return jsonString;
     }
     
     public String endpoint4ToJSon(String address) {
-        logger.info("Chosing data for endpoint4");
+        logger.debug("Chosing data for endpoint4");
         String jsonString = "";
         List<Person> personList = recoveredData.getPersons();
         List<MedicalRecord> medicalRecordsList = recoveredData.getMedicalrecords();
@@ -223,11 +229,11 @@ public class ExtraProxy implements IExtraProxy {
             }
         }
         if (loggerIndex == -1) {
-            logger.warn("Address not valid");
+            logger.error("Address not valid");
         }
         ObjectMapper mapper = new ObjectMapper();
         try {
-            logger.info("Create exit String for endpoint4");
+            logger.debug("Create exit String for endpoint4");
             ArrayNode personsDataNode = mapper.createArrayNode();
             for (Person p : personsPerAddress) {
                 ObjectNode personsUniqueDataNode = mapper.createObjectNode();
@@ -256,14 +262,15 @@ public class ExtraProxy implements IExtraProxy {
             
         } catch (Exception e) {
             System.out.println(e.getMessage());
+            logger.error(e.getMessage());
         }
-        
-        
+    
+        logger.info("Exit data for endpoint 4 is "+jsonString);
         return jsonString;
     }
     
     public String endpoint5ToJSon(String station) {
-        logger.info("Chosing data for endpoint5");
+        logger.debug("Chosing data for endpoint5");
         String jsonString = "";
         List<Person> personList = recoveredData.getPersons();
         List<MedicalRecord> medicalRecordsList = recoveredData.getMedicalrecords();
@@ -296,11 +303,11 @@ public class ExtraProxy implements IExtraProxy {
             }
         }
         if (loggerIndex == -1) {
-            logger.warn("Station number not valid");
+            logger.error("Station number not valid");
         }
         ObjectMapper mapper = new ObjectMapper();
         try {
-            logger.info("Create exit String for endpoint5");
+            logger.debug("Create exit String for endpoint5");
             ArrayNode personAddressDataNode = mapper.createArrayNode();
             for (String address : addressesPerFirestation) {
                 ObjectNode personAddressUniqueDataNode = mapper.createObjectNode();
@@ -340,14 +347,15 @@ public class ExtraProxy implements IExtraProxy {
             jsonString = mapper.writeValueAsString(stationCompletNode);
         } catch (Exception e) {
             System.out.println(e.getMessage());
+            logger.error(e.getMessage());
         }
-        
+        logger.info("Exit data for endpoint 5 is "+jsonString);
         
         return jsonString;
     }
     
     public String endpoint6ToJSon() {
-        logger.info("Chosing data for endpoint6");
+        logger.debug("Chosing data for endpoint6");
         String jsonString = "";
         List<Person> personList = recoveredData.getPersons();
         List<MedicalRecord> medicalRecordsList = recoveredData.getMedicalrecords();
@@ -388,14 +396,14 @@ public class ExtraProxy implements IExtraProxy {
             jsonString = mapper.writeValueAsString(personsDataNode);
         } catch (Exception e) {
             System.out.println(e.getMessage());
+            logger.error(e.getMessage());
         }
-        
-        
+        logger.info("Exit data for endpoint 6 is "+jsonString);
         return jsonString;
     }
     
     public String endpoint7ToJSon(String city) {
-        logger.info("Chosing data for endpoint7");
+        logger.debug("Chosing data for endpoint7");
         String jsonString = "";
         List<Person> personList = recoveredData.getPersons();
         List<String> emailPerCity = new ArrayList<>();
@@ -407,11 +415,11 @@ public class ExtraProxy implements IExtraProxy {
             }
         }
         if (loggerIndex == -1) {
-            logger.warn("City not valid");
+            logger.error("City not valid");
         }
         ObjectMapper mapper = new ObjectMapper();
         try {
-            logger.info("Create exit String for endpoint7");
+            logger.debug("Create exit String for endpoint7");
             ArrayNode emailsDataNode = mapper.createArrayNode();
             for (String email : emailPerCity) {
                 emailsDataNode.add(email);
@@ -422,7 +430,9 @@ public class ExtraProxy implements IExtraProxy {
             jsonString = mapper.writeValueAsString(emailCompletNode);
         } catch (Exception e) {
             System.out.println(e.getMessage());
+            logger.error(e.getMessage());
         }
+        logger.info("Exit data for endpoint 7 is "+jsonString);
         return jsonString;
     }
     
