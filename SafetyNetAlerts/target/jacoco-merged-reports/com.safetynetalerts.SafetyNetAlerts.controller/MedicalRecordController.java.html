@@ -24,7 +24,7 @@ import java.util.List;
     
     @PutMapping(&quot;/medicalRecord&quot;)
     public List&lt;MedicalRecord&gt; modifyMedicalRecord(@RequestParam String firstName, @RequestParam String lastName, @RequestParam List&lt;String&gt; newMedications, @RequestParam List&lt;String&gt;newAllergies){
-<span class="nc" id="L27">        return medicalRecordService.modifyMedicalRecord(firstName,lastName,newMedications,newAllergies);</span>
+<span class="fc" id="L27">        return medicalRecordService.modifyMedicalRecord(firstName,lastName,newMedications,newAllergies);</span>
     }
     
     @PostMapping(&quot;/medicalRecord&quot;)

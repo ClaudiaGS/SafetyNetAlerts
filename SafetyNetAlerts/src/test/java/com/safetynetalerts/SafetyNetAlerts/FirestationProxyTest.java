@@ -20,7 +20,6 @@ import static org.mockito.Mockito.when;
 public class FirestationProxyTest {
     @MockBean
     IRecoveredData rc;
-    
     @Autowired
     IFirestationsProxy firestationsProxy;
     

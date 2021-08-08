@@ -2,7 +2,7 @@ package com.safetynetalerts.SafetyNetAlerts.integration;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.safetynetalerts.SafetyNetAlerts.config.DataSources;
-import com.safetynetalerts.SafetyNetAlerts.integration.config.RecoveredTestData;
+import com.safetynetalerts.SafetyNetAlerts.integration.config.DataTestConfig;
 import com.safetynetalerts.SafetyNetAlerts.model.Person;
 import com.safetynetalerts.SafetyNetAlerts.repository.IPersonsProxy;
 import com.safetynetalerts.SafetyNetAlerts.repository.IRecoveredData;
@@ -11,34 +11,29 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.Import;
 
 import java.util.HashMap;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-//@Import(DataTestConfig.class)
+@Import(DataTestConfig.class)
 @SpringBootTest
 public class PersonServiceIT {
     
     @Autowired
     IPersonsProxy personsProxy;
-    
     @Autowired
     IPersonService personService;
-    
     @Autowired
     DataSources dataSources;
-    
-   
-   IRecoveredData recoveredTestData=new RecoveredTestData();
-    
+    @Autowired
+    IRecoveredData recoveredTestData;
     
     @BeforeEach
     public void config() {
         recoveredTestData.readData(dataSources);
-        System.out.println("here" + recoveredTestData.getPersons());
         personsProxy.setRecoveredData(recoveredTestData);
-        System.out.println(personsProxy.readPersons());
     }
     
     @Test

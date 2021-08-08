@@ -7,6 +7,8 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.safetynetalerts.SafetyNetAlerts.model.Firestation;
 import com.safetynetalerts.SafetyNetAlerts.model.MedicalRecord;
 import com.safetynetalerts.SafetyNetAlerts.model.Person;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -17,28 +19,30 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+
 @Repository
 public class ExtraProxy implements IExtraProxy {
+    
+    private static final Logger logger = LoggerFactory.getLogger(PersonsProxy.class);
     
     @Autowired
     IRecoveredData recoveredData;
     
     
     public String endpoint1ToJSon(String station) {
+        logger.info("Chosing data for endpoint1");
         List<Firestation> firestationList = recoveredData.getFirestations();
         List<Person> personList = recoveredData.getPersons();
         List<MedicalRecord> medicalRecordList = recoveredData.getMedicalrecords();
-        
         List<Person> personPerGivenFirestation = new ArrayList<>();
-        
         HashMap<String, Integer> childrenAndAdults = new HashMap<>();
         int countChildren = 0;
         int countAdults = 0;
-        
+        int age = -1;
         for (Firestation f : firestationList) {
+            
             if (f.getStation().equals(station)) {
                 for (Person p : personList) {
-                    
                     if (f.getAddress().equals(p.getAddress())) {
                         personPerGivenFirestation.add(p);
                         for (MedicalRecord m : medicalRecordList) {
@@ -48,7 +52,7 @@ public class ExtraProxy implements IExtraProxy {
                                     LocalDate actualDate = LocalDate.now();
                                     DateTimeFormatter pattern = DateTimeFormatter.ofPattern("MM/dd/yyyy");
                                     LocalDate birthdateDateFormat = LocalDate.parse(m.getBirthdate(), pattern);
-                                    int age = Period.between(birthdateDateFormat, actualDate).getYears();
+                                    age = Period.between(birthdateDateFormat, actualDate).getYears();
                                     if (age <= 18) {
                                         countChildren++;
                                     } else {
@@ -66,10 +70,13 @@ public class ExtraProxy implements IExtraProxy {
                 }
             }
         }
+        if (age == -1) {
+            logger.warn("Station number not valid");
+        }
         String jsonString = "";
         try {
+            logger.info("Create exit String for endpoint1");
             ObjectMapper mapper = new ObjectMapper();
-            
             ArrayNode personDataNode = mapper.createArrayNode();
             for (Person p : personPerGivenFirestation) {
                 ObjectNode personUniqueDataNode = mapper.createObjectNode();
@@ -97,15 +104,17 @@ public class ExtraProxy implements IExtraProxy {
     }
     
     public String endpoint2ToJSon(String address) {
+        logger.info("Chosing data for endpoint2");
         List<Person> personList = recoveredData.getPersons();
         List<MedicalRecord> medicalRecordList = recoveredData.getMedicalrecords();
         
         List<Person> childrenListPerAddress = new ArrayList<>();
         List<Person> adultsListPerAddress = new ArrayList<>();
         List<Integer> childrenAgesPerAddress = new ArrayList<>();
-        
+        int loggerIndex=-1;
         for (Person p : personList) {
             if (address.equals(p.getAddress())) {
+                loggerIndex=1;
                 for (MedicalRecord m : medicalRecordList) {
                     if (p.getFirstName().equals(m.getFirstName()) && p.getLastName().equals(m.getLastName())) {
                         LocalDate actualDate = LocalDate.now();
@@ -122,9 +131,13 @@ public class ExtraProxy implements IExtraProxy {
                 }
             }
         }
+        if(loggerIndex==-1){
+            logger.warn("Address not valid");
+        }
         
         String jsonString = "";
         try {
+            logger.info("Create String for endpoint2");
             ObjectMapper mapper = new ObjectMapper();
             ArrayNode otherPersonsDataNode = mapper.createArrayNode();
             for (Person p : adultsListPerAddress) {
@@ -151,14 +164,14 @@ public class ExtraProxy implements IExtraProxy {
         }
         return jsonString;
     }
-    
     public String endpoint3ToJSon(String station) {
-        
+        logger.info("Chosing data for endpoint3");
         String jSonStringEndpoint1 = endpoint1ToJSon(station);
         String jsonString = "";
         List<String> phoneNumbersPerGivenFirestation = new ArrayList<>();
         ObjectMapper mapper = new ObjectMapper();
         try {
+            logger.info("Create exit String for endpoint3");
             JsonNode root = mapper.readTree(jSonStringEndpoint1);
             JsonNode personNode = root.path("persons");
             for (JsonNode n : personNode) {
@@ -180,6 +193,7 @@ public class ExtraProxy implements IExtraProxy {
     }
     
     public String endpoint4ToJSon(String address) {
+        logger.info("Chosing data for endpoint4");
         String jsonString = "";
         List<Person> personList = recoveredData.getPersons();
         List<MedicalRecord> medicalRecordsList = recoveredData.getMedicalrecords();
@@ -187,9 +201,11 @@ public class ExtraProxy implements IExtraProxy {
         List<Integer> ages = new ArrayList<>();
         List<Person> personsPerAddress = new ArrayList<>();
         String firestationPerAddress = null;
+        int loggerIndex = -1;
         for (Firestation firestation : firestationList) {
             if (firestation.getAddress().equals(address)) {
                 firestationPerAddress = firestation.getStation();
+                loggerIndex = 1;
             }
         }
         for (Person p : personList) {
@@ -197,25 +213,27 @@ public class ExtraProxy implements IExtraProxy {
                 personsPerAddress.add(p);
                 for (MedicalRecord m : medicalRecordsList) {
                     if (p.getFirstName().equals(m.getFirstName()) && p.getLastName().equals(m.getLastName())) {
-                        
                         LocalDate actualDate = LocalDate.now();
                         DateTimeFormatter pattern = DateTimeFormatter.ofPattern("MM/dd/yyyy");
                         LocalDate birthdateDateFormat = LocalDate.parse(m.getBirthdate(), pattern);
                         ages.add(Period.between(birthdateDateFormat, actualDate).getYears());
+                        loggerIndex = 1;
                     }
                 }
             }
         }
-        
+        if (loggerIndex == -1) {
+            logger.warn("Address not valid");
+        }
         ObjectMapper mapper = new ObjectMapper();
         try {
+            logger.info("Create exit String for endpoint4");
             ArrayNode personsDataNode = mapper.createArrayNode();
             for (Person p : personsPerAddress) {
                 ObjectNode personsUniqueDataNode = mapper.createObjectNode();
                 personsUniqueDataNode.put("lastName", p.getLastName());
                 personsUniqueDataNode.put("phone", p.getPhone());
                 personsUniqueDataNode.put("age", ages.get(personList.indexOf(p)));
-                // personsUniqueDataNode.put("station", firestationPerAddress);
                 ArrayNode medicationsArrayDataNode = mapper.createArrayNode();
                 for (String medication : medicalRecordsList.get(personList.indexOf(p)).getMedications()) {
                     medicationsArrayDataNode.add(medication);
@@ -245,6 +263,7 @@ public class ExtraProxy implements IExtraProxy {
     }
     
     public String endpoint5ToJSon(String station) {
+        logger.info("Chosing data for endpoint5");
         String jsonString = "";
         List<Person> personList = recoveredData.getPersons();
         List<MedicalRecord> medicalRecordsList = recoveredData.getMedicalrecords();
@@ -253,8 +272,10 @@ public class ExtraProxy implements IExtraProxy {
         List<Person> personsPerFirestation = new ArrayList<>();
         List<MedicalRecord> medicalRecordsPerFirestation = new ArrayList<>();
         List<String> addressesPerFirestation = new ArrayList<>();
+        int loggerIndex = -1;
         for (Firestation firestation : firestationList) {
             if (firestation.getStation().equals(station)) {
+                loggerIndex = 1;
                 for (Person person : personList) {
                     if (firestation.getAddress().equals(person.getAddress())) {
                         if (!addressesPerFirestation.contains(person.getAddress())) {
@@ -274,9 +295,12 @@ public class ExtraProxy implements IExtraProxy {
                 }
             }
         }
+        if (loggerIndex == -1) {
+            logger.warn("Station number not valid");
+        }
         ObjectMapper mapper = new ObjectMapper();
         try {
-            
+            logger.info("Create exit String for endpoint5");
             ArrayNode personAddressDataNode = mapper.createArrayNode();
             for (String address : addressesPerFirestation) {
                 ObjectNode personAddressUniqueDataNode = mapper.createObjectNode();
@@ -323,6 +347,7 @@ public class ExtraProxy implements IExtraProxy {
     }
     
     public String endpoint6ToJSon() {
+        logger.info("Chosing data for endpoint6");
         String jsonString = "";
         List<Person> personList = recoveredData.getPersons();
         List<MedicalRecord> medicalRecordsList = recoveredData.getMedicalrecords();
@@ -336,6 +361,7 @@ public class ExtraProxy implements IExtraProxy {
         }
         ObjectMapper mapper = new ObjectMapper();
         try {
+            logger.info("Create exit String for endpoint6");
             ArrayNode personsDataNode = mapper.createArrayNode();
             for (Person p : personList) {
                 ObjectNode personsUniqueDataNode = mapper.createObjectNode();
@@ -369,16 +395,23 @@ public class ExtraProxy implements IExtraProxy {
     }
     
     public String endpoint7ToJSon(String city) {
+        logger.info("Chosing data for endpoint7");
         String jsonString = "";
         List<Person> personList = recoveredData.getPersons();
         List<String> emailPerCity = new ArrayList<>();
+        int loggerIndex = -1;
         for (Person p : personList) {
             if (p.getCity().equals(city)) {
                 emailPerCity.add(p.getEmail());
+                loggerIndex = 1;
             }
+        }
+        if (loggerIndex == -1) {
+            logger.warn("City not valid");
         }
         ObjectMapper mapper = new ObjectMapper();
         try {
+            logger.info("Create exit String for endpoint7");
             ArrayNode emailsDataNode = mapper.createArrayNode();
             for (String email : emailPerCity) {
                 emailsDataNode.add(email);

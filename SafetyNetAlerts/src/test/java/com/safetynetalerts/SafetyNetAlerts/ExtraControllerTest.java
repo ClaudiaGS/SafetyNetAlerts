@@ -20,10 +20,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class ExtraControllerTest {
     @Autowired
     private MockMvc mvc;
-    
     @MockBean
     IExtraService extraService;
-    
     
     String result1 = "1111";
     String result2 = "2222";
