@@ -1,0 +1,410 @@
+2021-08-08 17:31:18.594  INFO 1372 --- [main] c.s.S.i.MedicalRecordServiceIT           : Starting MedicalRecordServiceIT using Java 11.0.9.1 on DESKTOP-960AEJP with PID 1372 (started by CristianS in F:\OPENCLASSROOMS\PROJET 5\SafetyNetAlertsGit\SafetyNetAlerts)
+2021-08-08 17:31:18.626  INFO 1372 --- [main] c.s.S.i.MedicalRecordServiceIT           : No active profile set, falling back to default profiles: default
+2021-08-08 17:31:22.328  INFO 1372 --- [main] c.s.S.i.MedicalRecordServiceIT           : Started MedicalRecordServiceIT in 4.254 seconds (JVM running for 5.658)
+2021-08-08 17:31:22.701  INFO 1372 --- [main] c.s.S.repository.PersonsProxy            : Modify medical record for TestJohn Boyd with [bbb] and [aaa]
+2021-08-08 17:31:22.782  INFO 1372 --- [main] c.s.S.repository.PersonsProxy            : Reading medical records from JSON
+2021-08-08 17:31:22.809  INFO 1372 --- [main] c.s.S.repository.PersonsProxy            : Adding medical record
+2021-08-08 17:31:22.815  INFO 1372 --- [main] c.s.S.repository.PersonsProxy            : Delete medical record for TestJohn Boyd
+2021-08-08 17:31:22.870  INFO 1372 --- [main] c.s.S.repository.PersonsProxy            : Chosing data for endpoint1
+2021-08-08 17:31:22.873  INFO 1372 --- [main] c.s.S.repository.PersonsProxy            : Create exit String for endpoint1
+2021-08-08 17:31:22.873  INFO 1372 --- [main] c.s.S.repository.PersonsProxy            : Chosing data for endpoint2
+2021-08-08 17:31:22.887  INFO 1372 --- [main] c.s.S.repository.PersonsProxy            : Create exit String for endpoint2
+2021-08-08 17:31:22.945  INFO 1372 --- [main] c.s.S.repository.PersonsProxy            : Deleting person TestJohnBoyd
+2021-08-08 17:31:22.957  INFO 1372 --- [main] c.s.S.repository.PersonsProxy            : Reading all persons from JSON
+2021-08-08 17:31:22.967  INFO 1372 --- [main] c.s.S.repository.PersonsProxy            : Adding person
+2021-08-08 17:31:22.997  INFO 1372 --- [main] c.s.S.repository.PersonsProxy            : Modify person TestJohn Boydwith new parameters {phone=111-111}
+2021-08-08 17:31:23.027  INFO 1372 --- [main] c.s.S.repository.PersonsProxy            : Read firestation info from JSON
+2021-08-08 17:31:23.034  INFO 1372 --- [main] c.s.S.repository.PersonsProxy            : Modify firestation: 1509 Culver St goes to station 1
+2021-08-08 17:31:23.045  INFO 1372 --- [main] c.s.S.repository.PersonsProxy            : Delete firestation for {station=1}
+2021-08-08 17:31:23.062  INFO 1372 --- [main] c.s.S.repository.PersonsProxy            : Add address 100 Pink St to station 2
+2021-08-08 17:35:39.258  INFO 1540 --- [main] c.s.S.integration.ExtraServiceIT         : Starting ExtraServiceIT using Java 11.0.9.1 on DESKTOP-960AEJP with PID 1540 (started by CristianS in F:\OPENCLASSROOMS\PROJET 5\SafetyNetAlertsGit\SafetyNetAlerts)
+2021-08-08 17:35:39.262  INFO 1540 --- [main] c.s.S.integration.ExtraServiceIT         : No active profile set, falling back to default profiles: default
+2021-08-08 17:35:43.801  INFO 13236 --- [main] c.s.S.integration.ExtraServiceIT         : Starting ExtraServiceIT using Java 11.0.9.1 on DESKTOP-960AEJP with PID 13236 (started by CristianS in F:\OPENCLASSROOMS\PROJET 5\SafetyNetAlertsGit\SafetyNetAlerts)
+2021-08-08 17:35:43.801  INFO 13236 --- [main] c.s.S.integration.ExtraServiceIT         : No active profile set, falling back to default profiles: default
+2021-08-08 17:35:48.130  INFO 13236 --- [main] c.s.S.integration.ExtraServiceIT         : Started ExtraServiceIT in 4.833 seconds (JVM running for 7.771)
+2021-08-08 17:35:48.691  INFO 13236 --- [main] c.s.S.repository.PersonsProxy            : Chosing data for endpoint1
+2021-08-08 17:35:48.701  INFO 13236 --- [main] c.s.S.repository.PersonsProxy            : Create exit String for endpoint1
+2021-08-08 17:35:48.762  INFO 13236 --- [main] c.s.S.repository.PersonsProxy            : Chosing data for endpoint2
+2021-08-08 17:35:48.763  INFO 13236 --- [main] c.s.S.repository.PersonsProxy            : Create exit String for endpoint2
+2021-08-08 17:39:18.830  INFO 848 --- [main] c.s.S.i.MedicalRecordServiceIT           : Starting MedicalRecordServiceIT using Java 11.0.9.1 on DESKTOP-960AEJP with PID 848 (started by CristianS in F:\OPENCLASSROOMS\PROJET 5\SafetyNetAlertsGit\SafetyNetAlerts)
+2021-08-08 17:39:18.830  INFO 848 --- [main] c.s.S.i.MedicalRecordServiceIT           : No active profile set, falling back to default profiles: default
+2021-08-08 17:39:22.667  INFO 848 --- [main] c.s.S.i.MedicalRecordServiceIT           : Started MedicalRecordServiceIT in 4.372 seconds (JVM running for 5.884)
+2021-08-08 17:39:23.112  INFO 848 --- [main] c.s.S.repository.PersonsProxy            : Modify medical record for TestJohn Boyd with [bbb] and [aaa]
+2021-08-08 17:39:23.201  INFO 848 --- [main] c.s.S.repository.PersonsProxy            : Reading medical records from JSON
+2021-08-08 17:39:23.227  INFO 848 --- [main] c.s.S.repository.PersonsProxy            : Adding medical record
+2021-08-08 17:39:23.253  INFO 848 --- [main] c.s.S.repository.PersonsProxy            : Delete medical record for TestJohn Boyd
+2021-08-08 17:39:23.278  INFO 848 --- [main] c.s.S.repository.PersonsProxy            : Chosing data for endpoint1
+2021-08-08 17:39:23.294  INFO 848 --- [main] c.s.S.repository.PersonsProxy            : Create exit String for endpoint1
+2021-08-08 17:39:23.300  INFO 848 --- [main] c.s.S.repository.PersonsProxy            : Chosing data for endpoint3
+2021-08-08 17:39:23.300  INFO 848 --- [main] c.s.S.repository.PersonsProxy            : Chosing data for endpoint1
+2021-08-08 17:39:23.300  INFO 848 --- [main] c.s.S.repository.PersonsProxy            : Create exit String for endpoint1
+2021-08-08 17:39:23.301  INFO 848 --- [main] c.s.S.repository.PersonsProxy            : Create exit String for endpoint3
+2021-08-08 17:39:23.310  INFO 848 --- [main] c.s.S.repository.PersonsProxy            : Chosing data for endpoint4
+2021-08-08 17:39:23.311  INFO 848 --- [main] c.s.S.repository.PersonsProxy            : Create exit String for endpoint4
+2021-08-08 17:39:23.312  INFO 848 --- [main] c.s.S.repository.PersonsProxy            : Chosing data for endpoint5
+2021-08-08 17:39:23.312  INFO 848 --- [main] c.s.S.repository.PersonsProxy            : Create exit String for endpoint5
+2021-08-08 17:39:23.312  INFO 848 --- [main] c.s.S.repository.PersonsProxy            : Chosing data for endpoint6
+2021-08-08 17:39:23.312  INFO 848 --- [main] c.s.S.repository.PersonsProxy            : Create exit String for endpoint6
+2021-08-08 17:39:23.312  INFO 848 --- [main] c.s.S.repository.PersonsProxy            : Chosing data for endpoint7
+2021-08-08 17:39:23.312  INFO 848 --- [main] c.s.S.repository.PersonsProxy            : Create exit String for endpoint7
+2021-08-08 17:39:23.368  INFO 848 --- [main] c.s.S.repository.PersonsProxy            : Deleting person TestJohnBoyd
+2021-08-08 17:39:23.385  INFO 848 --- [main] c.s.S.repository.PersonsProxy            : Reading all persons from JSON
+2021-08-08 17:39:23.395  INFO 848 --- [main] c.s.S.repository.PersonsProxy            : Adding person
+2021-08-08 17:39:23.424  INFO 848 --- [main] c.s.S.repository.PersonsProxy            : Modify person TestJohn Boydwith new parameters {phone=111-111}
+2021-08-08 17:39:23.446  INFO 848 --- [main] c.s.S.repository.PersonsProxy            : Read firestation info from JSON
+2021-08-08 17:39:23.452  INFO 848 --- [main] c.s.S.repository.PersonsProxy            : Modify firestation: 1509 Culver St goes to station 1
+2021-08-08 17:39:23.499  INFO 848 --- [main] c.s.S.repository.PersonsProxy            : Delete firestation for {station=1}
+2021-08-08 17:39:23.521  INFO 848 --- [main] c.s.S.repository.PersonsProxy            : Add address 100 Pink St to station 2
+2021-08-08 17:43:04.648  INFO 10844 --- [main] c.s.S.FirestationControllerTest          : Starting FirestationControllerTest using Java 11.0.9.1 on DESKTOP-960AEJP with PID 10844 (started by CristianS in F:\OPENCLASSROOMS\PROJET 5\SafetyNetAlertsGit\SafetyNetAlerts)
+2021-08-08 17:43:04.648  INFO 10844 --- [main] c.s.S.FirestationControllerTest          : No active profile set, falling back to default profiles: default
+2021-08-08 17:43:06.064  INFO 10844 --- [main] c.s.S.FirestationControllerTest          : Started FirestationControllerTest in 2.131 seconds (JVM running for 4.13)
+2021-08-08 17:43:06.337  INFO 10844 --- [main] c.s.S.PersonControllerTest               : Starting PersonControllerTest using Java 11.0.9.1 on DESKTOP-960AEJP with PID 10844 (started by CristianS in F:\OPENCLASSROOMS\PROJET 5\SafetyNetAlertsGit\SafetyNetAlerts)
+2021-08-08 17:43:06.338  INFO 10844 --- [main] c.s.S.PersonControllerTest               : No active profile set, falling back to default profiles: default
+2021-08-08 17:43:06.527  INFO 10844 --- [main] c.s.S.PersonControllerTest               : Started PersonControllerTest in 0.232 seconds (JVM running for 4.597)
+2021-08-08 17:43:06.723  INFO 10844 --- [main] c.s.S.i.MedicalRecordServiceIT           : Starting MedicalRecordServiceIT using Java 11.0.9.1 on DESKTOP-960AEJP with PID 10844 (started by CristianS in F:\OPENCLASSROOMS\PROJET 5\SafetyNetAlertsGit\SafetyNetAlerts)
+2021-08-08 17:43:06.723  INFO 10844 --- [main] c.s.S.i.MedicalRecordServiceIT           : No active profile set, falling back to default profiles: default
+2021-08-08 17:43:09.732  INFO 10844 --- [main] c.s.S.i.MedicalRecordServiceIT           : Started MedicalRecordServiceIT in 3.071 seconds (JVM running for 7.8)
+2021-08-08 17:43:09.759  INFO 10844 --- [main] c.s.S.repository.PersonsProxy            : Modify medical record for TestJohn Boyd with [bbb] and [aaa]
+2021-08-08 17:43:09.844  INFO 10844 --- [main] c.s.S.repository.PersonsProxy            : Reading medical records from JSON
+2021-08-08 17:43:09.872  INFO 10844 --- [main] c.s.S.repository.PersonsProxy            : Adding medical record
+2021-08-08 17:43:09.889  INFO 10844 --- [main] c.s.S.repository.PersonsProxy            : Delete medical record for TestJohn Boyd
+2021-08-08 17:43:09.935  INFO 10844 --- [main] c.s.S.MedicalRecordControllerTest        : Starting MedicalRecordControllerTest using Java 11.0.9.1 on DESKTOP-960AEJP with PID 10844 (started by CristianS in F:\OPENCLASSROOMS\PROJET 5\SafetyNetAlertsGit\SafetyNetAlerts)
+2021-08-08 17:43:09.935  INFO 10844 --- [main] c.s.S.MedicalRecordControllerTest        : No active profile set, falling back to default profiles: default
+2021-08-08 17:43:10.727  INFO 10844 --- [main] c.s.S.MedicalRecordControllerTest        : Started MedicalRecordControllerTest in 0.812 seconds (JVM running for 8.793)
+2021-08-08 17:43:10.823  INFO 10844 --- [main] c.s.SafetyNetAlerts.ExtraControllerTest  : Starting ExtraControllerTest using Java 11.0.9.1 on DESKTOP-960AEJP with PID 10844 (started by CristianS in F:\OPENCLASSROOMS\PROJET 5\SafetyNetAlertsGit\SafetyNetAlerts)
+2021-08-08 17:43:10.824  INFO 10844 --- [main] c.s.SafetyNetAlerts.ExtraControllerTest  : No active profile set, falling back to default profiles: default
+2021-08-08 17:43:10.978  INFO 10844 --- [main] c.s.SafetyNetAlerts.ExtraControllerTest  : Started ExtraControllerTest in 0.183 seconds (JVM running for 9.044)
+2021-08-08 17:43:11.050  INFO 10844 --- [main] c.s.S.repository.PersonsProxy            : Chosing data for endpoint1
+2021-08-08 17:43:11.070  INFO 10844 --- [main] c.s.S.repository.PersonsProxy            : Create exit String for endpoint1
+2021-08-08 17:43:11.071  INFO 10844 --- [main] c.s.S.repository.PersonsProxy            : Chosing data for endpoint2
+2021-08-08 17:43:11.071  INFO 10844 --- [main] c.s.S.repository.PersonsProxy            : Create String for endpoint2
+2021-08-08 17:43:11.075  INFO 10844 --- [main] c.s.S.repository.PersonsProxy            : Chosing data for endpoint3
+2021-08-08 17:43:11.075  INFO 10844 --- [main] c.s.S.repository.PersonsProxy            : Chosing data for endpoint1
+2021-08-08 17:43:11.076  INFO 10844 --- [main] c.s.S.repository.PersonsProxy            : Create exit String for endpoint1
+2021-08-08 17:43:11.076  INFO 10844 --- [main] c.s.S.repository.PersonsProxy            : Create exit String for endpoint3
+2021-08-08 17:43:11.083  INFO 10844 --- [main] c.s.S.repository.PersonsProxy            : Chosing data for endpoint4
+2021-08-08 17:43:11.083  INFO 10844 --- [main] c.s.S.repository.PersonsProxy            : Create exit String for endpoint4
+2021-08-08 17:43:11.086  INFO 10844 --- [main] c.s.S.repository.PersonsProxy            : Chosing data for endpoint5
+2021-08-08 17:43:11.087  INFO 10844 --- [main] c.s.S.repository.PersonsProxy            : Create exit String for endpoint5
+2021-08-08 17:43:11.087  INFO 10844 --- [main] c.s.S.repository.PersonsProxy            : Chosing data for endpoint6
+2021-08-08 17:43:11.090  INFO 10844 --- [main] c.s.S.repository.PersonsProxy            : Create exit String for endpoint6
+2021-08-08 17:43:11.099  INFO 10844 --- [main] c.s.S.repository.PersonsProxy            : Chosing data for endpoint7
+2021-08-08 17:43:11.099  INFO 10844 --- [main] c.s.S.repository.PersonsProxy            : Create exit String for endpoint7
+2021-08-08 17:43:11.136  INFO 10844 --- [main] c.s.S.MedicalRecordsProxyTest            : Starting MedicalRecordsProxyTest using Java 11.0.9.1 on DESKTOP-960AEJP with PID 10844 (started by CristianS in F:\OPENCLASSROOMS\PROJET 5\SafetyNetAlertsGit\SafetyNetAlerts)
+2021-08-08 17:43:11.139  INFO 10844 --- [main] c.s.S.MedicalRecordsProxyTest            : No active profile set, falling back to default profiles: default
+2021-08-08 17:43:11.163  INFO 10844 --- [main] c.s.S.MedicalRecordsProxyTest            : Started MedicalRecordsProxyTest in 0.062 seconds (JVM running for 9.239)
+2021-08-08 17:43:11.181  INFO 10844 --- [main] c.s.S.repository.PersonsProxy            : Delete medical record for Anne Dubois
+2021-08-08 17:43:11.185  WARN 10844 --- [main] c.s.S.repository.PersonsProxy            : Medical record not in list.
+2021-08-08 17:43:11.186  INFO 10844 --- [main] c.s.S.repository.PersonsProxy            : Modify medical record for Anne Dubois with [bbb] and [aaa]
+2021-08-08 17:43:11.201  INFO 10844 --- [main] c.s.S.repository.PersonsProxy            : Reading medical records from JSON
+2021-08-08 17:43:11.201  INFO 10844 --- [main] c.s.S.repository.PersonsProxy            : Adding medical record
+2021-08-08 17:43:11.244  INFO 10844 --- [main] c.s.S.repository.PersonsProxy            : Read firestation info from JSON
+2021-08-08 17:43:11.262  INFO 10844 --- [main] c.s.S.repository.PersonsProxy            : Modify firestation: 1509 Culver St goes to station 1
+2021-08-08 17:43:11.271  INFO 10844 --- [main] c.s.S.repository.PersonsProxy            : Delete firestation for {station=1}
+2021-08-08 17:43:11.289  INFO 10844 --- [main] c.s.S.repository.PersonsProxy            : Add address 100 Pink St to station 2
+2021-08-08 17:43:11.342  INFO 10844 --- [main] c.s.S.SafetyNetAlertsTests               : Starting SafetyNetAlertsTests using Java 11.0.9.1 on DESKTOP-960AEJP with PID 10844 (started by CristianS in F:\OPENCLASSROOMS\PROJET 5\SafetyNetAlertsGit\SafetyNetAlerts)
+2021-08-08 17:43:11.343  INFO 10844 --- [main] c.s.S.SafetyNetAlertsTests               : No active profile set, falling back to default profiles: default
+2021-08-08 17:43:12.033  INFO 10844 --- [main] c.s.S.SafetyNetAlertsTests               : Started SafetyNetAlertsTests in 0.716 seconds (JVM running for 10.1)
+2021-08-08 17:43:12.052  INFO 10844 --- [main] c.s.S.repository.PersonsProxy            : Deleting person TestJohnBoyd
+2021-08-08 17:43:12.069  INFO 10844 --- [main] c.s.S.repository.PersonsProxy            : Reading all persons from JSON
+2021-08-08 17:43:12.077  INFO 10844 --- [main] c.s.S.repository.PersonsProxy            : Adding person
+2021-08-08 17:43:12.108  INFO 10844 --- [main] c.s.S.repository.PersonsProxy            : Modify person TestJohn Boydwith new parameters {phone=111-111}
+2021-08-08 17:43:12.151  INFO 10844 --- [main] c.s.SafetyNetAlerts.PersonProxyTest      : Starting PersonProxyTest using Java 11.0.9.1 on DESKTOP-960AEJP with PID 10844 (started by CristianS in F:\OPENCLASSROOMS\PROJET 5\SafetyNetAlertsGit\SafetyNetAlerts)
+2021-08-08 17:43:12.152  INFO 10844 --- [main] c.s.SafetyNetAlerts.PersonProxyTest      : No active profile set, falling back to default profiles: default
+2021-08-08 17:43:12.163  INFO 10844 --- [main] c.s.SafetyNetAlerts.PersonProxyTest      : Started PersonProxyTest in 0.032 seconds (JVM running for 10.229)
+2021-08-08 17:43:12.169  INFO 10844 --- [main] c.s.S.repository.PersonsProxy            : Deleting person AnneDubois
+2021-08-08 17:43:12.169  WARN 10844 --- [main] c.s.S.repository.PersonsProxy            : Person not in list
+2021-08-08 17:43:12.181  INFO 10844 --- [main] c.s.S.repository.PersonsProxy            : Modify person Anne Duboiswith new parameters {zip=1111, address=100 Blue St, phone=111-111, city=Orleans, email=aaa@}
+2021-08-08 17:43:12.202  INFO 10844 --- [main] c.s.S.repository.PersonsProxy            : Adding person
+2021-08-08 17:43:12.209  INFO 10844 --- [main] c.s.S.repository.PersonsProxy            : Reading all persons from JSON
+2021-08-08 17:43:12.260  INFO 10844 --- [main] c.s.SafetyNetAlerts.ExtraProxyTest       : Starting ExtraProxyTest using Java 11.0.9.1 on DESKTOP-960AEJP with PID 10844 (started by CristianS in F:\OPENCLASSROOMS\PROJET 5\SafetyNetAlertsGit\SafetyNetAlerts)
+2021-08-08 17:43:12.260  INFO 10844 --- [main] c.s.SafetyNetAlerts.ExtraProxyTest       : No active profile set, falling back to default profiles: default
+2021-08-08 17:43:12.287  INFO 10844 --- [main] c.s.SafetyNetAlerts.ExtraProxyTest       : Started ExtraProxyTest in 0.067 seconds (JVM running for 10.356)
+2021-08-08 17:43:12.338  INFO 10844 --- [main] c.s.S.repository.PersonsProxy            : Chosing data for endpoint5
+2021-08-08 17:43:12.338  INFO 10844 --- [main] c.s.S.repository.PersonsProxy            : Create exit String for endpoint5
+2021-08-08 17:43:12.372  INFO 10844 --- [main] c.s.S.repository.PersonsProxy            : Chosing data for endpoint7
+2021-08-08 17:43:12.372  INFO 10844 --- [main] c.s.S.repository.PersonsProxy            : Create exit String for endpoint7
+2021-08-08 17:43:12.388  INFO 10844 --- [main] c.s.S.repository.PersonsProxy            : Chosing data for endpoint2
+2021-08-08 17:43:12.388  INFO 10844 --- [main] c.s.S.repository.PersonsProxy            : Create String for endpoint2
+2021-08-08 17:43:12.404  INFO 10844 --- [main] c.s.S.repository.PersonsProxy            : Chosing data for endpoint4
+2021-08-08 17:43:12.412  INFO 10844 --- [main] c.s.S.repository.PersonsProxy            : Create exit String for endpoint4
+2021-08-08 17:43:12.426  INFO 10844 --- [main] c.s.S.repository.PersonsProxy            : Chosing data for endpoint6
+2021-08-08 17:43:12.444  INFO 10844 --- [main] c.s.S.repository.PersonsProxy            : Create exit String for endpoint6
+2021-08-08 17:43:12.477  INFO 10844 --- [main] c.s.S.repository.PersonsProxy            : Chosing data for endpoint1
+2021-08-08 17:43:12.489  INFO 10844 --- [main] c.s.S.repository.PersonsProxy            : Create exit String for endpoint1
+2021-08-08 17:43:12.497  INFO 10844 --- [main] c.s.S.repository.PersonsProxy            : Chosing data for endpoint3
+2021-08-08 17:43:12.497  INFO 10844 --- [main] c.s.S.repository.PersonsProxy            : Chosing data for endpoint1
+2021-08-08 17:43:12.505  INFO 10844 --- [main] c.s.S.repository.PersonsProxy            : Create exit String for endpoint1
+2021-08-08 17:43:12.505  INFO 10844 --- [main] c.s.S.repository.PersonsProxy            : Create exit String for endpoint3
+2021-08-08 17:43:12.599  INFO 10844 --- [main] c.s.S.FirestationProxyTest               : Starting FirestationProxyTest using Java 11.0.9.1 on DESKTOP-960AEJP with PID 10844 (started by CristianS in F:\OPENCLASSROOMS\PROJET 5\SafetyNetAlertsGit\SafetyNetAlerts)
+2021-08-08 17:43:12.600  INFO 10844 --- [main] c.s.S.FirestationProxyTest               : No active profile set, falling back to default profiles: default
+2021-08-08 17:43:12.616  INFO 10844 --- [main] c.s.S.FirestationProxyTest               : Started FirestationProxyTest in 0.08 seconds (JVM running for 10.683)
+2021-08-08 17:43:12.625  INFO 10844 --- [main] c.s.S.repository.PersonsProxy            : Read firestation info from JSON
+2021-08-08 17:43:12.631  INFO 10844 --- [main] c.s.S.repository.PersonsProxy            : Add address 1500 Pink St to station 3
+2021-08-08 17:43:12.637  INFO 10844 --- [main] c.s.S.repository.PersonsProxy            : Delete firestation for {station=1}
+2021-08-08 17:43:12.639  WARN 10844 --- [main] c.s.S.repository.PersonsProxy            : Address or station not in list
+2021-08-08 17:43:12.640  INFO 10844 --- [main] c.s.S.repository.PersonsProxy            : Modify firestation: 95 Culver St goes to station 3
+2021-08-08 17:44:57.328  INFO 18104 --- [main] c.s.S.FirestationControllerTest          : Starting FirestationControllerTest using Java 11.0.9.1 on DESKTOP-960AEJP with PID 18104 (started by CristianS in F:\OPENCLASSROOMS\PROJET 5\SafetyNetAlertsGit\SafetyNetAlerts)
+2021-08-08 17:44:57.328  INFO 18104 --- [main] c.s.S.FirestationControllerTest          : No active profile set, falling back to default profiles: default
+2021-08-08 17:44:58.547  INFO 18104 --- [main] c.s.S.FirestationControllerTest          : Started FirestationControllerTest in 1.756 seconds (JVM running for 3.206)
+2021-08-08 17:44:58.834  INFO 18104 --- [main] c.s.S.PersonControllerTest               : Starting PersonControllerTest using Java 11.0.9.1 on DESKTOP-960AEJP with PID 18104 (started by CristianS in F:\OPENCLASSROOMS\PROJET 5\SafetyNetAlertsGit\SafetyNetAlerts)
+2021-08-08 17:44:58.850  INFO 18104 --- [main] c.s.S.PersonControllerTest               : No active profile set, falling back to default profiles: default
+2021-08-08 17:44:59.135  INFO 18104 --- [main] c.s.S.PersonControllerTest               : Started PersonControllerTest in 0.349 seconds (JVM running for 3.797)
+2021-08-08 17:44:59.342  INFO 18104 --- [main] c.s.S.i.MedicalRecordServiceIT           : Starting MedicalRecordServiceIT using Java 11.0.9.1 on DESKTOP-960AEJP with PID 18104 (started by CristianS in F:\OPENCLASSROOMS\PROJET 5\SafetyNetAlertsGit\SafetyNetAlerts)
+2021-08-08 17:44:59.342  INFO 18104 --- [main] c.s.S.i.MedicalRecordServiceIT           : No active profile set, falling back to default profiles: default
+2021-08-08 17:45:02.377  INFO 18104 --- [main] c.s.S.i.MedicalRecordServiceIT           : Started MedicalRecordServiceIT in 3.069 seconds (JVM running for 7.037)
+2021-08-08 17:45:02.399  INFO 18104 --- [main] c.s.S.repository.PersonsProxy            : Modify medical record for TestJohn Boyd with [bbb] and [aaa]
+2021-08-08 17:45:02.471  INFO 18104 --- [main] c.s.S.repository.PersonsProxy            : Reading medical records from JSON
+2021-08-08 17:45:02.493  INFO 18104 --- [main] c.s.S.repository.PersonsProxy            : Adding medical record
+2021-08-08 17:45:02.514  INFO 18104 --- [main] c.s.S.repository.PersonsProxy            : Delete medical record for TestJohn Boyd
+2021-08-08 17:45:02.559  INFO 18104 --- [main] c.s.S.MedicalRecordControllerTest        : Starting MedicalRecordControllerTest using Java 11.0.9.1 on DESKTOP-960AEJP with PID 18104 (started by CristianS in F:\OPENCLASSROOMS\PROJET 5\SafetyNetAlertsGit\SafetyNetAlerts)
+2021-08-08 17:45:02.559  INFO 18104 --- [main] c.s.S.MedicalRecordControllerTest        : No active profile set, falling back to default profiles: default
+2021-08-08 17:45:03.275  INFO 18104 --- [main] c.s.S.MedicalRecordControllerTest        : Started MedicalRecordControllerTest in 0.735 seconds (JVM running for 7.935)
+2021-08-08 17:45:03.349  INFO 18104 --- [main] c.s.SafetyNetAlerts.ExtraControllerTest  : Starting ExtraControllerTest using Java 11.0.9.1 on DESKTOP-960AEJP with PID 18104 (started by CristianS in F:\OPENCLASSROOMS\PROJET 5\SafetyNetAlertsGit\SafetyNetAlerts)
+2021-08-08 17:45:03.350  INFO 18104 --- [main] c.s.SafetyNetAlerts.ExtraControllerTest  : No active profile set, falling back to default profiles: default
+2021-08-08 17:45:03.504  INFO 18104 --- [main] c.s.SafetyNetAlerts.ExtraControllerTest  : Started ExtraControllerTest in 0.176 seconds (JVM running for 8.164)
+2021-08-08 17:45:03.570  INFO 18104 --- [main] c.s.S.repository.PersonsProxy            : Chosing data for endpoint1
+2021-08-08 17:45:03.582  INFO 18104 --- [main] c.s.S.repository.PersonsProxy            : Create exit String for endpoint1
+2021-08-08 17:45:03.588  INFO 18104 --- [main] c.s.S.repository.PersonsProxy            : Chosing data for endpoint2
+2021-08-08 17:45:03.588  INFO 18104 --- [main] c.s.S.repository.PersonsProxy            : Create String for endpoint2
+2021-08-08 17:45:03.589  INFO 18104 --- [main] c.s.S.repository.PersonsProxy            : Chosing data for endpoint3
+2021-08-08 17:45:03.589  INFO 18104 --- [main] c.s.S.repository.PersonsProxy            : Chosing data for endpoint1
+2021-08-08 17:45:03.590  INFO 18104 --- [main] c.s.S.repository.PersonsProxy            : Create exit String for endpoint1
+2021-08-08 17:45:03.590  INFO 18104 --- [main] c.s.S.repository.PersonsProxy            : Create exit String for endpoint3
+2021-08-08 17:45:03.594  INFO 18104 --- [main] c.s.S.repository.PersonsProxy            : Chosing data for endpoint4
+2021-08-08 17:45:03.596  INFO 18104 --- [main] c.s.S.repository.PersonsProxy            : Create exit String for endpoint4
+2021-08-08 17:45:03.596  INFO 18104 --- [main] c.s.S.repository.PersonsProxy            : Chosing data for endpoint5
+2021-08-08 17:45:03.596  INFO 18104 --- [main] c.s.S.repository.PersonsProxy            : Create exit String for endpoint5
+2021-08-08 17:45:03.598  INFO 18104 --- [main] c.s.S.repository.PersonsProxy            : Chosing data for endpoint6
+2021-08-08 17:45:03.599  INFO 18104 --- [main] c.s.S.repository.PersonsProxy            : Create exit String for endpoint6
+2021-08-08 17:45:03.610  INFO 18104 --- [main] c.s.S.repository.PersonsProxy            : Chosing data for endpoint7
+2021-08-08 17:45:03.610  INFO 18104 --- [main] c.s.S.repository.PersonsProxy            : Create exit String for endpoint7
+2021-08-08 17:45:03.649  INFO 18104 --- [main] c.s.S.MedicalRecordsProxyTest            : Starting MedicalRecordsProxyTest using Java 11.0.9.1 on DESKTOP-960AEJP with PID 18104 (started by CristianS in F:\OPENCLASSROOMS\PROJET 5\SafetyNetAlertsGit\SafetyNetAlerts)
+2021-08-08 17:45:03.649  INFO 18104 --- [main] c.s.S.MedicalRecordsProxyTest            : No active profile set, falling back to default profiles: default
+2021-08-08 17:45:03.681  INFO 18104 --- [main] c.s.S.MedicalRecordsProxyTest            : Started MedicalRecordsProxyTest in 0.051 seconds (JVM running for 8.341)
+2021-08-08 17:45:03.681  INFO 18104 --- [main] c.s.S.repository.PersonsProxy            : Delete medical record for Anne Dubois
+2021-08-08 17:45:03.681  WARN 18104 --- [main] c.s.S.repository.PersonsProxy            : Medical record not in list.
+2021-08-08 17:45:03.681  INFO 18104 --- [main] c.s.S.repository.PersonsProxy            : Modify medical record for Anne Dubois with [bbb] and [aaa]
+2021-08-08 17:45:03.710  INFO 18104 --- [main] c.s.S.repository.PersonsProxy            : Reading medical records from JSON
+2021-08-08 17:45:03.721  INFO 18104 --- [main] c.s.S.repository.PersonsProxy            : Adding medical record
+2021-08-08 17:45:03.761  INFO 18104 --- [main] c.s.S.repository.PersonsProxy            : Read firestation info from JSON
+2021-08-08 17:45:03.772  INFO 18104 --- [main] c.s.S.repository.PersonsProxy            : Modify firestation: 1509 Culver St goes to station 1
+2021-08-08 17:45:03.798  INFO 18104 --- [main] c.s.S.repository.PersonsProxy            : Delete firestation for {station=1}
+2021-08-08 17:45:03.827  INFO 18104 --- [main] c.s.S.repository.PersonsProxy            : Add address 100 Pink St to station 2
+2021-08-08 17:45:03.882  INFO 18104 --- [main] c.s.S.SafetyNetAlertsTests               : Starting SafetyNetAlertsTests using Java 11.0.9.1 on DESKTOP-960AEJP with PID 18104 (started by CristianS in F:\OPENCLASSROOMS\PROJET 5\SafetyNetAlertsGit\SafetyNetAlerts)
+2021-08-08 17:45:03.882  INFO 18104 --- [main] c.s.S.SafetyNetAlertsTests               : No active profile set, falling back to default profiles: default
+2021-08-08 17:45:04.664  INFO 18104 --- [main] c.s.S.SafetyNetAlertsTests               : Started SafetyNetAlertsTests in 0.813 seconds (JVM running for 9.324)
+2021-08-08 17:45:04.685  INFO 18104 --- [main] c.s.S.repository.PersonsProxy            : Deleting person TestJohnBoyd
+2021-08-08 17:45:04.688  INFO 18104 --- [main] c.s.S.repository.PersonsProxy            : Reading all persons from JSON
+2021-08-08 17:45:04.703  INFO 18104 --- [main] c.s.S.repository.PersonsProxy            : Adding person
+2021-08-08 17:45:04.721  INFO 18104 --- [main] c.s.S.repository.PersonsProxy            : Modify person TestJohn Boydwith new parameters {phone=111-111}
+2021-08-08 17:45:04.752  INFO 18104 --- [main] c.s.SafetyNetAlerts.PersonProxyTest      : Starting PersonProxyTest using Java 11.0.9.1 on DESKTOP-960AEJP with PID 18104 (started by CristianS in F:\OPENCLASSROOMS\PROJET 5\SafetyNetAlertsGit\SafetyNetAlerts)
+2021-08-08 17:45:04.756  INFO 18104 --- [main] c.s.SafetyNetAlerts.PersonProxyTest      : No active profile set, falling back to default profiles: default
+2021-08-08 17:45:04.769  INFO 18104 --- [main] c.s.SafetyNetAlerts.PersonProxyTest      : Started PersonProxyTest in 0.039 seconds (JVM running for 9.428)
+2021-08-08 17:45:04.769  INFO 18104 --- [main] c.s.S.repository.PersonsProxy            : Deleting person AnneDubois
+2021-08-08 17:45:04.769  WARN 18104 --- [main] c.s.S.repository.PersonsProxy            : Person not in list
+2021-08-08 17:45:04.769  INFO 18104 --- [main] c.s.S.repository.PersonsProxy            : Modify person Anne Duboiswith new parameters {zip=1111, address=100 Blue St, phone=111-111, city=Orleans, email=aaa@}
+2021-08-08 17:45:04.779  INFO 18104 --- [main] c.s.S.repository.PersonsProxy            : Adding person
+2021-08-08 17:45:04.779  INFO 18104 --- [main] c.s.S.repository.PersonsProxy            : Reading all persons from JSON
+2021-08-08 17:45:04.809  INFO 18104 --- [main] c.s.SafetyNetAlerts.ExtraProxyTest       : Starting ExtraProxyTest using Java 11.0.9.1 on DESKTOP-960AEJP with PID 18104 (started by CristianS in F:\OPENCLASSROOMS\PROJET 5\SafetyNetAlertsGit\SafetyNetAlerts)
+2021-08-08 17:45:04.811  INFO 18104 --- [main] c.s.SafetyNetAlerts.ExtraProxyTest       : No active profile set, falling back to default profiles: default
+2021-08-08 17:45:04.818  INFO 18104 --- [main] c.s.SafetyNetAlerts.ExtraProxyTest       : Started ExtraProxyTest in 0.027 seconds (JVM running for 9.48)
+2021-08-08 17:45:04.823  INFO 18104 --- [main] c.s.S.repository.PersonsProxy            : Chosing data for endpoint5
+2021-08-08 17:45:04.823  INFO 18104 --- [main] c.s.S.repository.PersonsProxy            : Create exit String for endpoint5
+2021-08-08 17:45:04.834  INFO 18104 --- [main] c.s.S.repository.PersonsProxy            : Chosing data for endpoint7
+2021-08-08 17:45:04.834  INFO 18104 --- [main] c.s.S.repository.PersonsProxy            : Create exit String for endpoint7
+2021-08-08 17:45:04.856  INFO 18104 --- [main] c.s.S.repository.PersonsProxy            : Chosing data for endpoint2
+2021-08-08 17:45:04.857  INFO 18104 --- [main] c.s.S.repository.PersonsProxy            : Create String for endpoint2
+2021-08-08 17:45:04.863  INFO 18104 --- [main] c.s.S.repository.PersonsProxy            : Chosing data for endpoint4
+2021-08-08 17:45:04.863  INFO 18104 --- [main] c.s.S.repository.PersonsProxy            : Create exit String for endpoint4
+2021-08-08 17:45:04.872  INFO 18104 --- [main] c.s.S.repository.PersonsProxy            : Chosing data for endpoint6
+2021-08-08 17:45:04.872  INFO 18104 --- [main] c.s.S.repository.PersonsProxy            : Create exit String for endpoint6
+2021-08-08 17:45:04.873  INFO 18104 --- [main] c.s.S.repository.PersonsProxy            : Chosing data for endpoint1
+2021-08-08 17:45:04.873  INFO 18104 --- [main] c.s.S.repository.PersonsProxy            : Create exit String for endpoint1
+2021-08-08 17:45:04.891  INFO 18104 --- [main] c.s.S.repository.PersonsProxy            : Chosing data for endpoint3
+2021-08-08 17:45:04.891  INFO 18104 --- [main] c.s.S.repository.PersonsProxy            : Chosing data for endpoint1
+2021-08-08 17:45:04.891  INFO 18104 --- [main] c.s.S.repository.PersonsProxy            : Create exit String for endpoint1
+2021-08-08 17:45:04.895  INFO 18104 --- [main] c.s.S.repository.PersonsProxy            : Create exit String for endpoint3
+2021-08-08 17:45:04.924  INFO 18104 --- [main] c.s.S.FirestationProxyTest               : Starting FirestationProxyTest using Java 11.0.9.1 on DESKTOP-960AEJP with PID 18104 (started by CristianS in F:\OPENCLASSROOMS\PROJET 5\SafetyNetAlertsGit\SafetyNetAlerts)
+2021-08-08 17:45:04.924  INFO 18104 --- [main] c.s.S.FirestationProxyTest               : No active profile set, falling back to default profiles: default
+2021-08-08 17:45:04.933  INFO 18104 --- [main] c.s.S.FirestationProxyTest               : Started FirestationProxyTest in 0.03 seconds (JVM running for 9.594)
+2021-08-08 17:45:04.938  INFO 18104 --- [main] c.s.S.repository.PersonsProxy            : Read firestation info from JSON
+2021-08-08 17:45:04.941  INFO 18104 --- [main] c.s.S.repository.PersonsProxy            : Add address 1500 Pink St to station 3
+2021-08-08 17:45:04.950  INFO 18104 --- [main] c.s.S.repository.PersonsProxy            : Delete firestation for {station=1}
+2021-08-08 17:45:04.950  WARN 18104 --- [main] c.s.S.repository.PersonsProxy            : Address or station not in list
+2021-08-08 17:45:04.952  INFO 18104 --- [main] c.s.S.repository.PersonsProxy            : Modify firestation: 95 Culver St goes to station 3
+2021-08-08 17:45:34.686  INFO 13164 --- [main] c.s.SafetyNetAlerts.SafetyNetAlerts      : Starting SafetyNetAlerts using Java 11.0.9.1 on DESKTOP-960AEJP with PID 13164 (F:\OPENCLASSROOMS\PROJET 5\SafetyNetAlertsGit\SafetyNetAlerts\target\classes started by CristianS in F:\OPENCLASSROOMS\PROJET 5\SafetyNetAlertsGit\SafetyNetAlerts)
+2021-08-08 17:45:34.690  INFO 13164 --- [main] c.s.SafetyNetAlerts.SafetyNetAlerts      : No active profile set, falling back to default profiles: default
+2021-08-08 17:45:37.001  INFO 13164 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-08-08 17:45:39.111  INFO 13164 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-08-08 17:45:39.120  INFO 13164 --- [main] c.s.SafetyNetAlerts.SafetyNetAlerts      : Started SafetyNetAlerts in 4.95 seconds (JVM running for 5.542)
+2021-08-08 17:45:43.801  INFO 13164 --- [http-nio-8080-exec-2] c.s.S.repository.PersonsProxy            : Deleting person JohnBoyd
+2021-08-08 17:45:55.587  INFO 13164 --- [http-nio-8080-exec-3] c.s.S.repository.PersonsProxy            : Modify person John Boydwith new parameters {phone=888-888}
+2021-08-08 17:45:55.587  WARN 13164 --- [http-nio-8080-exec-3] c.s.S.repository.PersonsProxy            : Person not in list
+2021-08-08 17:46:05.534  INFO 13164 --- [http-nio-8080-exec-4] c.s.S.repository.PersonsProxy            : Adding person
+2021-08-08 17:46:11.536  INFO 13164 --- [http-nio-8080-exec-5] c.s.S.repository.PersonsProxy            : Read firestation info from JSON
+2021-08-08 17:46:23.326  INFO 13164 --- [http-nio-8080-exec-6] c.s.S.repository.PersonsProxy            : Delete firestation for {station=1}
+2021-08-08 17:46:54.485  INFO 13164 --- [http-nio-8080-exec-7] c.s.S.repository.PersonsProxy            : Modify firestation: 15 St goes to station 1
+2021-08-08 17:46:54.486  WARN 13164 --- [http-nio-8080-exec-7] c.s.S.repository.PersonsProxy            : Address not found
+2021-08-08 17:47:10.219  INFO 13164 --- [http-nio-8080-exec-8] c.s.S.repository.PersonsProxy            : Modify firestation: 1509 Culver St goes to station 1
+2021-08-08 17:47:17.736  INFO 13164 --- [http-nio-8080-exec-9] c.s.S.repository.PersonsProxy            : Add address 100 added street to station 2
+2021-08-08 17:47:23.659  INFO 13164 --- [http-nio-8080-exec-10] c.s.S.repository.PersonsProxy            : Reading medical records from JSON
+2021-08-08 17:47:27.815  INFO 13164 --- [http-nio-8080-exec-1] c.s.S.repository.PersonsProxy            : Delete medical record for John Boyd
+2021-08-08 17:47:40.256  INFO 13164 --- [http-nio-8080-exec-2] c.s.S.repository.PersonsProxy            : Modify medical record for John Boyd with [aaaa] and [hhh]
+2021-08-08 17:47:40.258  WARN 13164 --- [http-nio-8080-exec-2] c.s.S.repository.PersonsProxy            : Medical record not in list
+2021-08-08 17:47:55.868  INFO 13164 --- [http-nio-8080-exec-3] c.s.S.repository.PersonsProxy            : Modify medical record for Jacob Boyd with [aaaa] and [hhh]
+2021-08-08 17:48:04.545  INFO 13164 --- [http-nio-8080-exec-4] c.s.S.repository.PersonsProxy            : Adding medical record
+2021-08-08 17:48:10.185  INFO 13164 --- [http-nio-8080-exec-5] c.s.S.repository.PersonsProxy            : Chosing data for endpoint1
+2021-08-08 17:48:10.186  WARN 13164 --- [http-nio-8080-exec-5] c.s.S.repository.PersonsProxy            : Station number not valid
+2021-08-08 17:48:10.186  INFO 13164 --- [http-nio-8080-exec-5] c.s.S.repository.PersonsProxy            : Create exit String for endpoint1
+2021-08-08 17:48:35.682  INFO 13164 --- [http-nio-8080-exec-6] c.s.S.repository.PersonsProxy            : Chosing data for endpoint1
+2021-08-08 17:48:35.691  INFO 13164 --- [http-nio-8080-exec-6] c.s.S.repository.PersonsProxy            : Create exit String for endpoint1
+2021-08-08 17:48:54.266  INFO 13164 --- [http-nio-8080-exec-7] c.s.S.repository.PersonsProxy            : Chosing data for endpoint2
+2021-08-08 17:48:54.266  INFO 13164 --- [http-nio-8080-exec-7] c.s.S.repository.PersonsProxy            : Create String for endpoint2
+2021-08-08 17:50:03.496  INFO 17932 --- [main] c.s.SafetyNetAlerts.ExtraControllerTest  : Starting ExtraControllerTest using Java 11.0.9.1 on DESKTOP-960AEJP with PID 17932 (started by CristianS in F:\OPENCLASSROOMS\PROJET 5\SafetyNetAlertsGit\SafetyNetAlerts)
+2021-08-08 17:50:03.496  INFO 17932 --- [main] c.s.SafetyNetAlerts.ExtraControllerTest  : No active profile set, falling back to default profiles: default
+2021-08-08 17:50:05.401  INFO 17932 --- [main] c.s.SafetyNetAlerts.ExtraControllerTest  : Started ExtraControllerTest in 2.696 seconds (JVM running for 4.858)
+2021-08-08 17:50:05.745  INFO 17932 --- [main] c.s.SafetyNetAlerts.ExtraProxyTest       : Starting ExtraProxyTest using Java 11.0.9.1 on DESKTOP-960AEJP with PID 17932 (started by CristianS in F:\OPENCLASSROOMS\PROJET 5\SafetyNetAlertsGit\SafetyNetAlerts)
+2021-08-08 17:50:05.745  INFO 17932 --- [main] c.s.SafetyNetAlerts.ExtraProxyTest       : No active profile set, falling back to default profiles: default
+2021-08-08 17:50:05.814  INFO 17932 --- [main] c.s.SafetyNetAlerts.ExtraProxyTest       : Started ExtraProxyTest in 0.122 seconds (JVM running for 5.275)
+2021-08-08 17:50:05.961  INFO 17932 --- [main] c.s.S.repository.PersonsProxy            : Chosing data for endpoint5
+2021-08-08 17:50:05.970  INFO 17932 --- [main] c.s.S.repository.PersonsProxy            : Create exit String for endpoint5
+2021-08-08 17:50:06.092  INFO 17932 --- [main] c.s.S.repository.PersonsProxy            : Chosing data for endpoint7
+2021-08-08 17:50:06.092  INFO 17932 --- [main] c.s.S.repository.PersonsProxy            : Create exit String for endpoint7
+2021-08-08 17:50:06.116  INFO 17932 --- [main] c.s.S.repository.PersonsProxy            : Chosing data for endpoint2
+2021-08-08 17:50:06.116  INFO 17932 --- [main] c.s.S.repository.PersonsProxy            : Create String for endpoint2
+2021-08-08 17:50:06.124  INFO 17932 --- [main] c.s.S.repository.PersonsProxy            : Chosing data for endpoint4
+2021-08-08 17:50:06.124  INFO 17932 --- [main] c.s.S.repository.PersonsProxy            : Create exit String for endpoint4
+2021-08-08 17:50:06.140  INFO 17932 --- [main] c.s.S.repository.PersonsProxy            : Chosing data for endpoint6
+2021-08-08 17:50:06.140  INFO 17932 --- [main] c.s.S.repository.PersonsProxy            : Create exit String for endpoint6
+2021-08-08 17:50:06.184  INFO 17932 --- [main] c.s.S.repository.PersonsProxy            : Chosing data for endpoint1
+2021-08-08 17:50:06.184  INFO 17932 --- [main] c.s.S.repository.PersonsProxy            : Create exit String for endpoint1
+2021-08-08 17:50:06.200  INFO 17932 --- [main] c.s.S.repository.PersonsProxy            : Chosing data for endpoint3
+2021-08-08 17:50:06.200  INFO 17932 --- [main] c.s.S.repository.PersonsProxy            : Chosing data for endpoint1
+2021-08-08 17:50:06.208  INFO 17932 --- [main] c.s.S.repository.PersonsProxy            : Create exit String for endpoint1
+2021-08-08 17:50:06.208  INFO 17932 --- [main] c.s.S.repository.PersonsProxy            : Create exit String for endpoint3
+2021-08-08 17:50:06.286  INFO 17932 --- [main] c.s.S.FirestationControllerTest          : Starting FirestationControllerTest using Java 11.0.9.1 on DESKTOP-960AEJP with PID 17932 (started by CristianS in F:\OPENCLASSROOMS\PROJET 5\SafetyNetAlertsGit\SafetyNetAlerts)
+2021-08-08 17:50:06.287  INFO 17932 --- [main] c.s.S.FirestationControllerTest          : No active profile set, falling back to default profiles: default
+2021-08-08 17:50:06.504  INFO 17932 --- [main] c.s.S.FirestationControllerTest          : Started FirestationControllerTest in 0.266 seconds (JVM running for 5.964)
+2021-08-08 17:50:06.624  INFO 17932 --- [main] c.s.S.FirestationProxyTest               : Starting FirestationProxyTest using Java 11.0.9.1 on DESKTOP-960AEJP with PID 17932 (started by CristianS in F:\OPENCLASSROOMS\PROJET 5\SafetyNetAlertsGit\SafetyNetAlerts)
+2021-08-08 17:50:06.624  INFO 17932 --- [main] c.s.S.FirestationProxyTest               : No active profile set, falling back to default profiles: default
+2021-08-08 17:50:06.640  INFO 17932 --- [main] c.s.S.FirestationProxyTest               : Started FirestationProxyTest in 0.041 seconds (JVM running for 6.101)
+2021-08-08 17:50:06.648  INFO 17932 --- [main] c.s.S.repository.PersonsProxy            : Read firestation info from JSON
+2021-08-08 17:50:06.664  INFO 17932 --- [main] c.s.S.repository.PersonsProxy            : Add address 1500 Pink St to station 3
+2021-08-08 17:50:06.672  INFO 17932 --- [main] c.s.S.repository.PersonsProxy            : Delete firestation for {station=1}
+2021-08-08 17:50:06.672  WARN 17932 --- [main] c.s.S.repository.PersonsProxy            : Address or station not in list
+2021-08-08 17:50:06.684  INFO 17932 --- [main] c.s.S.repository.PersonsProxy            : Modify firestation: 95 Culver St goes to station 3
+2021-08-08 17:50:06.770  INFO 17932 --- [main] c.s.S.MedicalRecordControllerTest        : Starting MedicalRecordControllerTest using Java 11.0.9.1 on DESKTOP-960AEJP with PID 17932 (started by CristianS in F:\OPENCLASSROOMS\PROJET 5\SafetyNetAlertsGit\SafetyNetAlerts)
+2021-08-08 17:50:06.771  INFO 17932 --- [main] c.s.S.MedicalRecordControllerTest        : No active profile set, falling back to default profiles: default
+2021-08-08 17:50:10.297  INFO 17932 --- [main] c.s.S.MedicalRecordControllerTest        : Started MedicalRecordControllerTest in 3.56 seconds (JVM running for 9.754)
+2021-08-08 17:50:10.395  INFO 17932 --- [main] c.s.S.MedicalRecordsProxyTest            : Starting MedicalRecordsProxyTest using Java 11.0.9.1 on DESKTOP-960AEJP with PID 17932 (started by CristianS in F:\OPENCLASSROOMS\PROJET 5\SafetyNetAlertsGit\SafetyNetAlerts)
+2021-08-08 17:50:10.396  INFO 17932 --- [main] c.s.S.MedicalRecordsProxyTest            : No active profile set, falling back to default profiles: default
+2021-08-08 17:50:10.445  INFO 17932 --- [main] c.s.S.MedicalRecordsProxyTest            : Started MedicalRecordsProxyTest in 0.08 seconds (JVM running for 9.91)
+2021-08-08 17:50:10.470  INFO 17932 --- [main] c.s.S.repository.PersonsProxy            : Delete medical record for Anne Dubois
+2021-08-08 17:50:10.471  WARN 17932 --- [main] c.s.S.repository.PersonsProxy            : Medical record not in list.
+2021-08-08 17:50:10.504  INFO 17932 --- [main] c.s.S.repository.PersonsProxy            : Modify medical record for Anne Dubois with [bbb] and [aaa]
+2021-08-08 17:50:10.511  INFO 17932 --- [main] c.s.S.repository.PersonsProxy            : Reading medical records from JSON
+2021-08-08 17:50:10.526  INFO 17932 --- [main] c.s.S.repository.PersonsProxy            : Adding medical record
+2021-08-08 17:50:10.566  INFO 17932 --- [main] c.s.S.PersonControllerTest               : Starting PersonControllerTest using Java 11.0.9.1 on DESKTOP-960AEJP with PID 17932 (started by CristianS in F:\OPENCLASSROOMS\PROJET 5\SafetyNetAlertsGit\SafetyNetAlerts)
+2021-08-08 17:50:10.566  INFO 17932 --- [main] c.s.S.PersonControllerTest               : No active profile set, falling back to default profiles: default
+2021-08-08 17:50:10.828  INFO 17932 --- [main] c.s.S.PersonControllerTest               : Started PersonControllerTest in 0.285 seconds (JVM running for 10.285)
+2021-08-08 17:50:10.904  INFO 17932 --- [main] c.s.SafetyNetAlerts.PersonProxyTest      : Starting PersonProxyTest using Java 11.0.9.1 on DESKTOP-960AEJP with PID 17932 (started by CristianS in F:\OPENCLASSROOMS\PROJET 5\SafetyNetAlertsGit\SafetyNetAlerts)
+2021-08-08 17:50:10.904  INFO 17932 --- [main] c.s.SafetyNetAlerts.PersonProxyTest      : No active profile set, falling back to default profiles: default
+2021-08-08 17:50:10.922  INFO 17932 --- [main] c.s.SafetyNetAlerts.PersonProxyTest      : Started PersonProxyTest in 0.042 seconds (JVM running for 10.382)
+2021-08-08 17:50:10.934  INFO 17932 --- [main] c.s.S.repository.PersonsProxy            : Deleting person AnneDubois
+2021-08-08 17:50:10.934  WARN 17932 --- [main] c.s.S.repository.PersonsProxy            : Person not in list
+2021-08-08 17:50:10.947  INFO 17932 --- [main] c.s.S.repository.PersonsProxy            : Modify person Anne Duboiswith new parameters {zip=1111, address=100 Blue St, phone=111-111, city=Orleans, email=aaa@}
+2021-08-08 17:50:10.956  INFO 17932 --- [main] c.s.S.repository.PersonsProxy            : Adding person
+2021-08-08 17:50:10.962  INFO 17932 --- [main] c.s.S.repository.PersonsProxy            : Reading all persons from JSON
+2021-08-08 17:50:11.005  INFO 17932 --- [main] c.s.S.SafetyNetAlertsTests               : Starting SafetyNetAlertsTests using Java 11.0.9.1 on DESKTOP-960AEJP with PID 17932 (started by CristianS in F:\OPENCLASSROOMS\PROJET 5\SafetyNetAlertsGit\SafetyNetAlerts)
+2021-08-08 17:50:11.005  INFO 17932 --- [main] c.s.S.SafetyNetAlertsTests               : No active profile set, falling back to default profiles: default
+2021-08-08 17:50:11.924  INFO 17932 --- [main] c.s.S.SafetyNetAlertsTests               : Started SafetyNetAlertsTests in 0.938 seconds (JVM running for 11.381)
+2021-08-08 17:50:17.155  INFO 13488 --- [main] c.s.S.integration.ExtraServiceIT         : Starting ExtraServiceIT using Java 11.0.9.1 on DESKTOP-960AEJP with PID 13488 (started by CristianS in F:\OPENCLASSROOMS\PROJET 5\SafetyNetAlertsGit\SafetyNetAlerts)
+2021-08-08 17:50:17.171  INFO 13488 --- [main] c.s.S.integration.ExtraServiceIT         : No active profile set, falling back to default profiles: default
+2021-08-08 17:50:22.384  INFO 13488 --- [main] c.s.S.integration.ExtraServiceIT         : Started ExtraServiceIT in 5.845 seconds (JVM running for 7.871)
+2021-08-08 17:50:22.942  INFO 13488 --- [main] c.s.S.repository.PersonsProxy            : Chosing data for endpoint1
+2021-08-08 17:50:22.955  INFO 13488 --- [main] c.s.S.repository.PersonsProxy            : Create exit String for endpoint1
+2021-08-08 17:50:23.065  INFO 13488 --- [main] c.s.S.repository.PersonsProxy            : Chosing data for endpoint2
+2021-08-08 17:50:23.066  INFO 13488 --- [main] c.s.S.repository.PersonsProxy            : Create String for endpoint2
+2021-08-08 17:50:23.066  INFO 13488 --- [main] c.s.S.repository.PersonsProxy            : Chosing data for endpoint3
+2021-08-08 17:50:23.067  INFO 13488 --- [main] c.s.S.repository.PersonsProxy            : Chosing data for endpoint1
+2021-08-08 17:50:23.069  INFO 13488 --- [main] c.s.S.repository.PersonsProxy            : Create exit String for endpoint1
+2021-08-08 17:50:23.069  INFO 13488 --- [main] c.s.S.repository.PersonsProxy            : Create exit String for endpoint3
+2021-08-08 17:50:23.077  INFO 13488 --- [main] c.s.S.repository.PersonsProxy            : Chosing data for endpoint4
+2021-08-08 17:50:23.078  INFO 13488 --- [main] c.s.S.repository.PersonsProxy            : Create exit String for endpoint4
+2021-08-08 17:50:23.079  INFO 13488 --- [main] c.s.S.repository.PersonsProxy            : Chosing data for endpoint5
+2021-08-08 17:50:23.079  INFO 13488 --- [main] c.s.S.repository.PersonsProxy            : Create exit String for endpoint5
+2021-08-08 17:50:23.080  INFO 13488 --- [main] c.s.S.repository.PersonsProxy            : Chosing data for endpoint6
+2021-08-08 17:50:23.081  INFO 13488 --- [main] c.s.S.repository.PersonsProxy            : Create exit String for endpoint6
+2021-08-08 17:50:23.095  INFO 13488 --- [main] c.s.S.repository.PersonsProxy            : Chosing data for endpoint7
+2021-08-08 17:50:23.095  INFO 13488 --- [main] c.s.S.repository.PersonsProxy            : Create exit String for endpoint7
+2021-08-08 17:50:23.136  INFO 13488 --- [main] c.s.S.repository.PersonsProxy            : Read firestation info from JSON
+2021-08-08 17:50:23.183  INFO 13488 --- [main] c.s.S.repository.PersonsProxy            : Modify firestation: 1509 Culver St goes to station 1
+2021-08-08 17:50:23.203  INFO 13488 --- [main] c.s.S.repository.PersonsProxy            : Delete firestation for {station=1}
+2021-08-08 17:50:23.231  INFO 13488 --- [main] c.s.S.repository.PersonsProxy            : Add address 100 Pink St to station 2
+2021-08-08 17:50:23.275  INFO 13488 --- [main] c.s.S.repository.PersonsProxy            : Modify medical record for TestJohn Boyd with [bbb] and [aaa]
+2021-08-08 17:50:23.286  INFO 13488 --- [main] c.s.S.repository.PersonsProxy            : Reading medical records from JSON
+2021-08-08 17:50:23.315  INFO 13488 --- [main] c.s.S.repository.PersonsProxy            : Adding medical record
+2021-08-08 17:50:23.341  INFO 13488 --- [main] c.s.S.repository.PersonsProxy            : Delete medical record for TestJohn Boyd
+2021-08-08 17:50:23.385  INFO 13488 --- [main] c.s.S.repository.PersonsProxy            : Deleting person TestJohnBoyd
+2021-08-08 17:50:23.399  INFO 13488 --- [main] c.s.S.repository.PersonsProxy            : Reading all persons from JSON
+2021-08-08 17:50:23.413  INFO 13488 --- [main] c.s.S.repository.PersonsProxy            : Adding person
+2021-08-08 17:50:23.429  INFO 13488 --- [main] c.s.S.repository.PersonsProxy            : Modify person TestJohn Boydwith new parameters {phone=111-111}
+2021-08-08 17:55:51.984  INFO 2284 --- [main] c.s.SafetyNetAlerts.ExtraControllerTest  : Starting ExtraControllerTest using Java 11.0.9.1 on DESKTOP-960AEJP with PID 2284 (started by CristianS in F:\OPENCLASSROOMS\PROJET 5\SafetyNetAlertsGit\SafetyNetAlerts)
+2021-08-08 17:55:51.999  INFO 2284 --- [main] c.s.SafetyNetAlerts.ExtraControllerTest  : No active profile set, falling back to default profiles: default
+2021-08-08 17:55:53.920  INFO 2284 --- [main] c.s.SafetyNetAlerts.ExtraControllerTest  : Started ExtraControllerTest in 2.609 seconds (JVM running for 5.139)
+2021-08-08 17:55:54.341  INFO 2284 --- [main] c.s.SafetyNetAlerts.ExtraProxyTest       : Starting ExtraProxyTest using Java 11.0.9.1 on DESKTOP-960AEJP with PID 2284 (started by CristianS in F:\OPENCLASSROOMS\PROJET 5\SafetyNetAlertsGit\SafetyNetAlerts)
+2021-08-08 17:55:54.341  INFO 2284 --- [main] c.s.SafetyNetAlerts.ExtraProxyTest       : No active profile set, falling back to default profiles: default
+2021-08-08 17:55:54.403  INFO 2284 --- [main] c.s.SafetyNetAlerts.ExtraProxyTest       : Started ExtraProxyTest in 0.138 seconds (JVM running for 5.624)
+2021-08-08 17:55:54.572  INFO 2284 --- [main] c.s.S.repository.PersonsProxy            : Chosing data for endpoint5
+2021-08-08 17:55:54.581  INFO 2284 --- [main] c.s.S.repository.PersonsProxy            : Create exit String for endpoint5
+2021-08-08 17:55:54.733  INFO 2284 --- [main] c.s.S.repository.PersonsProxy            : Chosing data for endpoint7
+2021-08-08 17:55:54.733  INFO 2284 --- [main] c.s.S.repository.PersonsProxy            : Create exit String for endpoint7
+2021-08-08 17:55:54.745  INFO 2284 --- [main] c.s.S.repository.PersonsProxy            : Chosing data for endpoint2
+2021-08-08 17:55:54.745  INFO 2284 --- [main] c.s.S.repository.PersonsProxy            : Create String for endpoint2
+2021-08-08 17:55:54.761  INFO 2284 --- [main] c.s.S.repository.PersonsProxy            : Chosing data for endpoint4
+2021-08-08 17:55:54.761  INFO 2284 --- [main] c.s.S.repository.PersonsProxy            : Create exit String for endpoint4
+2021-08-08 17:55:54.774  INFO 2284 --- [main] c.s.S.repository.PersonsProxy            : Chosing data for endpoint6
+2021-08-08 17:55:54.776  INFO 2284 --- [main] c.s.S.repository.PersonsProxy            : Create exit String for endpoint6
+2021-08-08 17:55:54.805  INFO 2284 --- [main] c.s.S.repository.PersonsProxy            : Chosing data for endpoint1
+2021-08-08 17:55:54.805  INFO 2284 --- [main] c.s.S.repository.PersonsProxy            : Create exit String for endpoint1
+2021-08-08 17:55:54.822  INFO 2284 --- [main] c.s.S.repository.PersonsProxy            : Chosing data for endpoint3
+2021-08-08 17:55:54.822  INFO 2284 --- [main] c.s.S.repository.PersonsProxy            : Chosing data for endpoint1
+2021-08-08 17:55:54.833  INFO 2284 --- [main] c.s.S.repository.PersonsProxy            : Create exit String for endpoint1
+2021-08-08 17:55:54.834  INFO 2284 --- [main] c.s.S.repository.PersonsProxy            : Create exit String for endpoint3
+2021-08-08 17:55:54.912  INFO 2284 --- [main] c.s.S.FirestationControllerTest          : Starting FirestationControllerTest using Java 11.0.9.1 on DESKTOP-960AEJP with PID 2284 (started by CristianS in F:\OPENCLASSROOMS\PROJET 5\SafetyNetAlertsGit\SafetyNetAlerts)
+2021-08-08 17:55:54.912  INFO 2284 --- [main] c.s.S.FirestationControllerTest          : No active profile set, falling back to default profiles: default
+2021-08-08 17:55:55.223  INFO 2284 --- [main] c.s.S.FirestationControllerTest          : Started FirestationControllerTest in 0.368 seconds (JVM running for 6.442)
+2021-08-08 17:55:55.384  INFO 2284 --- [main] c.s.S.FirestationProxyTest               : Starting FirestationProxyTest using Java 11.0.9.1 on DESKTOP-960AEJP with PID 2284 (started by CristianS in F:\OPENCLASSROOMS\PROJET 5\SafetyNetAlertsGit\SafetyNetAlerts)
+2021-08-08 17:55:55.386  INFO 2284 --- [main] c.s.S.FirestationProxyTest               : No active profile set, falling back to default profiles: default
+2021-08-08 17:55:55.407  INFO 2284 --- [main] c.s.S.FirestationProxyTest               : Started FirestationProxyTest in 0.058 seconds (JVM running for 6.623)
+2021-08-08 17:55:55.418  INFO 2284 --- [main] c.s.S.repository.PersonsProxy            : Read firestation info from JSON
+2021-08-08 17:55:55.437  INFO 2284 --- [main] c.s.S.repository.PersonsProxy            : Add address 1500 Pink St to station 3
+2021-08-08 17:55:55.445  INFO 2284 --- [main] c.s.S.repository.PersonsProxy            : Delete firestation for {station=1}
+2021-08-08 17:55:55.447  WARN 2284 --- [main] c.s.S.repository.PersonsProxy            : Address or station not in list
+2021-08-08 17:55:55.456  INFO 2284 --- [main] c.s.S.repository.PersonsProxy            : Modify firestation: 95 Culver St goes to station 3
+2021-08-08 17:55:55.564  INFO 2284 --- [main] c.s.S.MedicalRecordControllerTest        : Starting MedicalRecordControllerTest using Java 11.0.9.1 on DESKTOP-960AEJP with PID 2284 (started by CristianS in F:\OPENCLASSROOMS\PROJET 5\SafetyNetAlertsGit\SafetyNetAlerts)
+2021-08-08 17:55:55.567  INFO 2284 --- [main] c.s.S.MedicalRecordControllerTest        : No active profile set, falling back to default profiles: default
+2021-08-08 17:55:59.074  INFO 2284 --- [main] c.s.S.MedicalRecordControllerTest        : Started MedicalRecordControllerTest in 3.547 seconds (JVM running for 10.289)
+2021-08-08 17:55:59.205  INFO 2284 --- [main] c.s.S.MedicalRecordsProxyTest            : Starting MedicalRecordsProxyTest using Java 11.0.9.1 on DESKTOP-960AEJP with PID 2284 (started by CristianS in F:\OPENCLASSROOMS\PROJET 5\SafetyNetAlertsGit\SafetyNetAlerts)
+2021-08-08 17:55:59.206  INFO 2284 --- [main] c.s.S.MedicalRecordsProxyTest            : No active profile set, falling back to default profiles: default
+2021-08-08 17:55:59.238  INFO 2284 --- [main] c.s.S.MedicalRecordsProxyTest            : Started MedicalRecordsProxyTest in 0.075 seconds (JVM running for 10.454)
+2021-08-08 17:55:59.243  INFO 2284 --- [main] c.s.S.repository.PersonsProxy            : Delete medical record for Anne Dubois
+2021-08-08 17:55:59.245  WARN 2284 --- [main] c.s.S.repository.PersonsProxy            : Medical record not in list.
+2021-08-08 17:55:59.268  INFO 2284 --- [main] c.s.S.repository.PersonsProxy            : Modify medical record for Anne Dubois with [bbb] and [aaa]
+2021-08-08 17:55:59.288  INFO 2284 --- [main] c.s.S.repository.PersonsProxy            : Reading medical records from JSON
+2021-08-08 17:55:59.305  INFO 2284 --- [main] c.s.S.repository.PersonsProxy            : Adding medical record
+2021-08-08 17:55:59.330  INFO 2284 --- [main] c.s.S.PersonControllerTest               : Starting PersonControllerTest using Java 11.0.9.1 on DESKTOP-960AEJP with PID 2284 (started by CristianS in F:\OPENCLASSROOMS\PROJET 5\SafetyNetAlertsGit\SafetyNetAlerts)
+2021-08-08 17:55:59.341  INFO 2284 --- [main] c.s.S.PersonControllerTest               : No active profile set, falling back to default profiles: default
+2021-08-08 17:55:59.632  INFO 2284 --- [main] c.s.S.PersonControllerTest               : Started PersonControllerTest in 0.32 seconds (JVM running for 10.851)
+2021-08-08 17:55:59.713  INFO 2284 --- [main] c.s.SafetyNetAlerts.PersonProxyTest      : Starting PersonProxyTest using Java 11.0.9.1 on DESKTOP-960AEJP with PID 2284 (started by CristianS in F:\OPENCLASSROOMS\PROJET 5\SafetyNetAlertsGit\SafetyNetAlerts)
+2021-08-08 17:55:59.713  INFO 2284 --- [main] c.s.SafetyNetAlerts.PersonProxyTest      : No active profile set, falling back to default profiles: default
+2021-08-08 17:55:59.755  INFO 2284 --- [main] c.s.SafetyNetAlerts.PersonProxyTest      : Started PersonProxyTest in 0.062 seconds (JVM running for 10.971)
+2021-08-08 17:55:59.756  INFO 2284 --- [main] c.s.S.repository.PersonsProxy            : Deleting person AnneDubois
+2021-08-08 17:55:59.756  WARN 2284 --- [main] c.s.S.repository.PersonsProxy            : Person not in list
+2021-08-08 17:55:59.781  INFO 2284 --- [main] c.s.S.repository.PersonsProxy            : Modify person Anne Duboiswith new parameters {zip=1111, address=100 Blue St, phone=111-111, city=Orleans, email=aaa@}
+2021-08-08 17:55:59.781  INFO 2284 --- [main] c.s.S.repository.PersonsProxy            : Adding person
+2021-08-08 17:55:59.781  INFO 2284 --- [main] c.s.S.repository.PersonsProxy            : Reading all persons from JSON
+2021-08-08 17:55:59.840  INFO 2284 --- [main] c.s.S.SafetyNetAlertsTests               : Starting SafetyNetAlertsTests using Java 11.0.9.1 on DESKTOP-960AEJP with PID 2284 (started by CristianS in F:\OPENCLASSROOMS\PROJET 5\SafetyNetAlertsGit\SafetyNetAlerts)
+2021-08-08 17:55:59.841  INFO 2284 --- [main] c.s.S.SafetyNetAlertsTests               : No active profile set, falling back to default profiles: default
+2021-08-08 17:56:00.642  INFO 2284 --- [main] c.s.S.SafetyNetAlertsTests               : Started SafetyNetAlertsTests in 0.84 seconds (JVM running for 11.857)

@@ -73,7 +73,6 @@ public class MedicalRecordControllerTest {
         try {
             List<String>newMedications=new ArrayList<>();
             newMedications.add("aaa");
-            
             List<String >newAllergies=new ArrayList<>();
             newAllergies.add("iii");
             medicalRecordTestList.get(0).setMedications(newMedications);
@@ -82,7 +81,7 @@ public class MedicalRecordControllerTest {
             this.mvc.perform(MockMvcRequestBuilders
                     .put("/medicalRecord")
                     .param("firstName","Anne")
-                    .param("lastname","Dubois")
+                    .param("lastName","Dubois")
                     .param("newMedications",(newMedications).toString())
                     .param("newAllergies",(newAllergies).toString())
                     .contentType(MediaType.APPLICATION_JSON));

@@ -1,9 +1,9 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-SafetyNetAlerts,com.safetynetalerts.SafetyNetAlerts.repository,MedicalRecordsProxy,0,121,2,14,0,29,2,12,0,6
-SafetyNetAlerts,com.safetynetalerts.SafetyNetAlerts.repository,FirestationsProxy,25,128,6,13,6,31,4,12,0,6
-SafetyNetAlerts,com.safetynetalerts.SafetyNetAlerts.repository,PersonsProxy,39,113,9,13,13,26,9,11,0,6
+SafetyNetAlerts,com.safetynetalerts.SafetyNetAlerts.repository,MedicalRecordsProxy,6,158,4,16,2,39,4,13,0,7
+SafetyNetAlerts,com.safetynetalerts.SafetyNetAlerts.repository,FirestationsProxy,33,164,8,15,9,42,6,13,0,7
+SafetyNetAlerts,com.safetynetalerts.SafetyNetAlerts.repository,PersonsProxy,45,144,11,15,15,35,11,12,0,7
 SafetyNetAlerts,com.safetynetalerts.SafetyNetAlerts.repository,RecoveredData,14,30,0,0,5,9,3,2,3,2
-SafetyNetAlerts,com.safetynetalerts.SafetyNetAlerts.repository,ExtraProxy,40,1244,5,93,16,272,5,53,0,9
+SafetyNetAlerts,com.safetynetalerts.SafetyNetAlerts.repository,ExtraProxy,55,1325,10,98,21,302,10,54,0,10
 SafetyNetAlerts,com.safetynetalerts.SafetyNetAlerts,SafetyNetAlerts,5,3,0,0,2,1,1,1,1,1
 SafetyNetAlerts,com.safetynetalerts.SafetyNetAlerts.config,DataSources,98,17,22,0,0,3,15,5,4,5
 SafetyNetAlerts,com.safetynetalerts.SafetyNetAlerts.config,DataConfig,0,13,0,0,0,4,0,2,0,2
@@ -16,5 +16,5 @@ SafetyNetAlerts,com.safetynetalerts.SafetyNetAlerts.controller,ExtraController,3
 SafetyNetAlerts,com.safetynetalerts.SafetyNetAlerts.controller,PersonController,22,3,0,0,4,1,4,1,4,1
 SafetyNetAlerts,com.safetynetalerts.SafetyNetAlerts.controller,FirestationController,21,3,0,0,4,1,4,1,4,1
 SafetyNetAlerts,com.safetynetalerts.SafetyNetAlerts.model,Firestation,66,49,16,6,0,3,12,8,2,7
-SafetyNetAlerts,com.safetynetalerts.SafetyNetAlerts.model,MedicalRecord,192,43,45,1,0,6,26,12,3,12
+SafetyNetAlerts,com.safetynetalerts.SafetyNetAlerts.model,MedicalRecord,180,55,45,1,0,6,25,13,2,13
 SafetyNetAlerts,com.safetynetalerts.SafetyNetAlerts.model,Person,215,100,56,6,0,8,31,19,1,18

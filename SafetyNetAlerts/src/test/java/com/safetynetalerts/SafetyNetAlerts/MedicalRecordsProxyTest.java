@@ -20,7 +20,6 @@ import static org.mockito.Mockito.when;
 public class MedicalRecordsProxyTest {
     @MockBean
     IRecoveredData rc;
-    
     @Autowired
     IMedicalRecordsProxy medicalRecordsProxy;
     
@@ -30,7 +29,6 @@ public class MedicalRecordsProxyTest {
     
     @BeforeEach
     public void config() {
-        
         medicalRecordTest1.setFirstName("Anne");
         medicalRecordTest1.setLastName("Dubois");
         medicalRecordTest2.setFirstName("Jack");

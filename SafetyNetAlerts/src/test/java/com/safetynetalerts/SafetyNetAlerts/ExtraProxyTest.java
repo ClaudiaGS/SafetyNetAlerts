@@ -24,7 +24,6 @@ import static org.mockito.Mockito.when;
 public class ExtraProxyTest {
     @MockBean
     IRecoveredData rc;
-    
     @Autowired
     IExtraProxy extraProxy;
     
