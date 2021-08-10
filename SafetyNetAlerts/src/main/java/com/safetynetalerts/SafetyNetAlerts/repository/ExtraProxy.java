@@ -101,7 +101,6 @@ public class ExtraProxy implements IExtraProxy {
             System.out.println(e.getMessage());
             logger.error(e.getMessage());
         }
-        logger.info("Exit data for endpoint 1 is "+jsonString);
         return jsonString;
     }
     
@@ -165,7 +164,6 @@ public class ExtraProxy implements IExtraProxy {
             System.out.println(e.getMessage());
             logger.error(e.getMessage());
         }
-        logger.info("Exit data for endpoint 2 is "+jsonString);
         return jsonString;
     }
     public String endpoint3ToJSon(String station) {
@@ -194,7 +192,6 @@ public class ExtraProxy implements IExtraProxy {
             System.out.println(e.getMessage());
             logger.error(e.getMessage());
         }
-        logger.info("Exit data for endpoint 3 is "+jsonString);
         return jsonString;
     }
     
@@ -264,8 +261,6 @@ public class ExtraProxy implements IExtraProxy {
             System.out.println(e.getMessage());
             logger.error(e.getMessage());
         }
-    
-        logger.info("Exit data for endpoint 4 is "+jsonString);
         return jsonString;
     }
     
@@ -349,7 +344,6 @@ public class ExtraProxy implements IExtraProxy {
             System.out.println(e.getMessage());
             logger.error(e.getMessage());
         }
-        logger.info("Exit data for endpoint 5 is "+jsonString);
         
         return jsonString;
     }
@@ -398,7 +392,6 @@ public class ExtraProxy implements IExtraProxy {
             System.out.println(e.getMessage());
             logger.error(e.getMessage());
         }
-        logger.info("Exit data for endpoint 6 is "+jsonString);
         return jsonString;
     }
     
@@ -432,7 +425,6 @@ public class ExtraProxy implements IExtraProxy {
             System.out.println(e.getMessage());
             logger.error(e.getMessage());
         }
-        logger.info("Exit data for endpoint 7 is "+jsonString);
         return jsonString;
     }
     
