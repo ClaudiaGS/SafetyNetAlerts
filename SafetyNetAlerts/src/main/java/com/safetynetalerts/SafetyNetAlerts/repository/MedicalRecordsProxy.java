@@ -16,15 +16,12 @@ public class MedicalRecordsProxy implements IMedicalRecordsProxy {
     
     @Override
     public List<MedicalRecord> readMedicalRecords() {
-        logger.debug("Reading medical records from JSON");
         List<MedicalRecord> medicalRecords = recoveredData.getMedicalrecords();
-        logger.info("Medical record list is "+medicalRecords);
         return medicalRecords;
     }
     
     @Override
     public List<MedicalRecord> deleteMedicalRecord(String firstName, String lastName) {
-        logger.debug("Delete medical record for " + firstName + " " + lastName);
         List<MedicalRecord> medicalRecords = recoveredData.getMedicalrecords();
         MedicalRecord medicalRecordToDelete = null;
         for (MedicalRecord m : medicalRecords) {
@@ -36,13 +33,11 @@ public class MedicalRecordsProxy implements IMedicalRecordsProxy {
             logger.error("Medical record not in list.");
         }
         medicalRecords.remove(medicalRecordToDelete);
-        logger.info("Medical Record list after delete is "+medicalRecords);
         return medicalRecords;
     }
     
     @Override
     public List<MedicalRecord> modifyMedicalRecord(String firstName, String lastName, List<String> newMedications, List<String> newAllergies) {
-        logger.debug("Modify medical record for " + firstName + " " + lastName + " with " + newMedications.toString() + " and " + newAllergies.toString());
         List<MedicalRecord> medicalRecordList = recoveredData.getMedicalrecords();
         int loggerIndex=-1;
         for (MedicalRecord m : medicalRecordList) {
@@ -61,17 +56,14 @@ public class MedicalRecordsProxy implements IMedicalRecordsProxy {
         if(loggerIndex==-1){
             logger.error("Medical record not in list");
         }
-        logger.info("Medical Record List after modification is "+medicalRecordList);
         return medicalRecordList;
         
     }
     
     @Override
     public List<MedicalRecord> addMedicalRecord(MedicalRecord medicalRecord) {
-        logger.debug("Adding medical record");
         List<MedicalRecord> medicalRecords = recoveredData.getMedicalrecords();
         medicalRecords.add(medicalRecord);
-        logger.info("Medical Record list after adding medical record is "+medicalRecords);
         return medicalRecords;
     }
     

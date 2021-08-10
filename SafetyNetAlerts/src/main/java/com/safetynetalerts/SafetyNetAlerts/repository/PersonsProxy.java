@@ -20,15 +20,12 @@ public class PersonsProxy implements IPersonsProxy {
     
     @Override
     public List<Person> readPersons() {
-        logger.debug("Reading all persons from JSON");
         List<Person> persons = recoveredData.getPersons();
-        logger.info("Person list is "+persons);
         return persons;
     }
     
     @Override
     public List<Person> deletePerson(String firstName, String lastName) {
-        logger.debug("Deleting person " + firstName + lastName);
         List<Person> persons = recoveredData.getPersons();
         Person personToDelete = null;
         for (Person p : persons) {
@@ -40,13 +37,11 @@ public class PersonsProxy implements IPersonsProxy {
             logger.error("Person not in list");
         }
         persons.remove(personToDelete);
-        logger.info("Person list after delete is "+persons);
         return persons;
     }
     
     @Override
     public List<Person> modifyPerson(String firstName, String lastName, HashMap<String, String> params) {
-        logger.debug("Modify person "+firstName+" "+lastName+"with new parameters "+params.toString());
         List<Person> persons = recoveredData.getPersons();
         int logIndex=-1;
         for (Person p : persons) {
@@ -85,16 +80,13 @@ public class PersonsProxy implements IPersonsProxy {
         if(logIndex==-1){
             logger.error("Person not in list");
         }
-        logger.info("Person list after modification is "+persons);
         return persons;
     }
     
     @Override
     public List<Person> addPerson(Person person) {
-        logger.debug("Adding person");
         List<Person> persons = recoveredData.getPersons();
         persons.add(person);
-        logger.info("Person list after adding "+person+" is"+persons);
         return persons;
     }
     
